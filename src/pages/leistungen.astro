@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { services } from '@/data/services';
+
+const extended = [
+  { id: 'webdesign', number: '01', title: 'Webdesign und Entwicklung', lead: 'Eine gute Website macht Ihr Angebot schnell verständlich, schafft Vertrauen und führt Besucher ohne Umwege zum nächsten Schritt.', items: ['Strategische Seitenstruktur', 'Individuelles visuelles Konzept', 'Responsive Entwicklung für alle Geräte', 'Barrierearme und verständliche Bedienung', 'Performanceoptimierte technische Basis'] },
+  { id: 'seo', number: '02', title: 'SEO-Grundlagen', lead: 'Saubere Technik und klar gegliederte Inhalte helfen Suchmaschinen, Ihr Angebot richtig einzuordnen – besonders bei regionalen Suchanfragen.', items: services[1].benefits },
+  { id: 'digitale-praesenz', number: '03', title: 'Domain und E-Mail', lead: 'Eine passende Domain und professionelle E-Mail-Adressen sorgen für einen geschlossenen und glaubwürdigen Auftritt.', items: ['Auswahl und Einrichtung der Domain', 'DNS- und SSL-Konfiguration', 'E-Mail-Adressen unter Ihrer Domain', 'Technische Verknüpfung mit der Website'] },
+  { id: 'google', number: '04', title: 'Google-Unternehmensprofil', lead: 'Ein gepflegtes Unternehmensprofil macht wichtige Informationen wie Öffnungszeiten, Standort und Kontaktmöglichkeiten direkt auffindbar.', items: ['Grundlegende Einrichtung', 'Einheitliche Unternehmensdaten', 'Verknüpfung mit Website und Kontakt', 'Hinweise zur eigenständigen Pflege'] },
+  { id: 'social', number: '05', title: 'Social-Media-Verknüpfung', lead: 'Bestehende Kanäle werden sinnvoll in die Website eingebunden, ohne ungefragte Tracking-Widgets oder unnötige Ablenkung.', items: ['Datenschutzfreundliche Verlinkung', 'Einheitliche Darstellung', 'Klare Kontakt- und Aktionswege'] },
+  { id: 'technik', number: '06', title: 'Technische Einrichtung', lead: 'Hosting, Sicherheit und Veröffentlichung werden nachvollziehbar vorbereitet, damit die Website zuverlässig erreichbar ist.', items: ['Hosting- und Deployment-Einrichtung', 'SSL-Verschlüsselung', 'Sitemap und Indexierung', 'Search Console nach Vereinbarung', 'Technische Abschlussprüfung'] },
+  { id: 'betreuung', number: '07', title: 'Betreuung und Erweiterungen', lead: 'Nach dem Start kann Ihr Auftritt angepasst und erweitert werden, wenn sich Leistungen, Inhalte oder Anforderungen verändern.', items: services[3].benefits }
+];
+---
+<BaseLayout title="Leistungen | Armbrüster Digital" description="Individuelles Webdesign, SEO-Grundlagen, Domain, E-Mail und digitale Präsenz für kleine Unternehmen – verständlich geplant und persönlich umgesetzt." path="/leistungen/" breadcrumbs={[{name:'Startseite',path:'/'},{name:'Leistungen',path:'/leistungen/'}]}>
+  <section class="page-hero"><div class="container page-hero__inner"><div><p class="eyebrow">Leistungen</p><h1>Ein digitaler Auftritt, bei dem <em>alles zusammenspielt.</em></h1></div><p class="page-hero__intro"><strong>Von der Website bis zur Domain.</strong> Sie erhalten eine Lösung, die zu Ihrem Unternehmen, Ihrem Alltag und Ihren Zielen passt.</p></div></section>
+  <section class="content-section"><div class="container"><SectionHeading title="Nicht mehr Technik als nötig. Aber alles, was wichtig ist." text="Die Leistungen werden so kombiniert, dass für Sie ein stimmiger, wartbarer und professioneller Auftritt entsteht." />
+    <div class="services-grid">{extended.map((item) => <article class="service-card reveal" id={item.id}><span class="service-card__number">{item.number}</span><h3>{item.title}</h3><p>{item.lead}</p><ul>{item.items.map((benefit) => <li>{benefit}</li>)}</ul></article>)}</div>
+    <div class="prose service-scope"><h2>Individuell vereinbart</h2><p>Welche Bausteine für Ihr Unternehmen sinnvoll sind, klären wir im persönlichen Gespräch. Der konkrete Leistungsumfang, Zeitrahmen und Preis werden individuell vereinbart und vor Projektbeginn transparent festgehalten.</p><p>Suchmaschinenoptimierung schafft eine saubere Grundlage für Sichtbarkeit. Bestimmte Positionen in Suchergebnissen können und werden nicht garantiert.</p></div>
+  </div></section><CallToAction compact />
+</BaseLayout>
+

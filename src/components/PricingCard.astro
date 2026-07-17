@@ -1,0 +1,16 @@
+---
+import type { PricingPackage } from '@/data/pricing';
+import Button from './Button.astro';
+interface Props { item: PricingPackage; compact?: boolean; }
+const { item, compact = false } = Astro.props;
+---
+<article class:list={['pricing-card', { 'pricing-card--featured': item.featured, 'pricing-card--compact': compact }] }>
+  {item.featured && <p class="pricing-card__badge">Beliebte Wahl</p>}
+  <h3>{item.name}</h3>
+  <p class="pricing-card__price">{item.price}</p>
+  <p>{item.description}</p>
+  <ul aria-label={`Leistungen im Paket ${item.name}`}>
+    {item.features.slice(0, compact ? 5 : undefined).map((feature) => <li>{feature}</li>)}
+  </ul>
+  <Button href={`/kontakt/?paket=${encodeURIComponent(item.name)}`} variant={item.featured ? 'primary' : 'secondary'}>Paket anfragen</Button>
+</article>

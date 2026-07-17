@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PricingSection from '@/components/PricingSection.astro';
+import PricingCard from '@/components/PricingCard.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { carePackages, pricingNotice } from '@/data/pricing';
+---
+<BaseLayout title="Preise | Webdesign-Pakete von Armbrüster Digital" description="Transparente Webdesign-Pakete und Betreuung für Selbstständige, kleine Unternehmen, Handwerker und Praxen." path="/preise/" breadcrumbs={[{name:'Startseite',path:'/'},{name:'Preise',path:'/preise/'}]}>
+  <section class="page-hero"><div class="container page-hero__inner"><div><p class="eyebrow">Preise</p><h1>Planbar starten. <em>Individuell wachsen.</em></h1></div><p class="page-hero__intro"><strong>Transparente Orientierung.</strong>Alle genannten Preise sind ab-Preise und werden nach einem persönlichen Erstgespräch konkretisiert.</p></div></section>
+  <PricingSection />
+  <section class="content-section lavender-section"><div class="container"><SectionHeading eyebrow="Nach der Veröffentlichung" title="Betreuung, die zu Ihrem Alltag passt." text="Von der technischen Basis bis zur kontinuierlichen Weiterentwicklung: Sie entscheiden, wie viel Unterstützung Sie benötigen." /><div class="pricing-grid pricing-grid--care">{carePackages.map((item) => <PricingCard item={item} />)}</div><p class="pricing-notice">{pricingNotice}</p></div></section>
+  <CallToAction compact />
+</BaseLayout>

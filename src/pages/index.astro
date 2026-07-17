@@ -1,0 +1,74 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import ProjectFeature from '@/components/ProjectFeature.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import PricingSection from '@/components/PricingSection.astro';
+import { services } from '@/data/services';
+import { projects } from '@/data/projects';
+import { processSteps } from '@/data/process';
+import { siteConfig } from '@/config/site';
+import { withBase } from '@/utils/paths';
+const heroProject = projects.find((project) => project.featuredInHero && project.screenshots);
+---
+<BaseLayout title="Armbrüster Digital | Webdesign für kleine Unternehmen" description="Armbrüster Digital entwickelt moderne Websites, SEO-Grundlagen und professionelle digitale Präsenzen für kleine Unternehmen und Selbstständige – persönlich betreut aus Lübeck und deutschlandweit." path="/">
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Webdesign aus Lübeck · Deutschlandweit</p>
+        <h1>Kleine Unternehmen verdienen <span>keinen kleinen Auftritt.</span></h1>
+        <p class="hero__lead">Armbrüster Digital entwickelt individuelle Websites, die professionell wirken, Vertrauen schaffen und Unternehmen sichtbar machen – persönlich betreut von der ersten Idee bis zur Veröffentlichung.</p>
+        <div class="hero__actions"><Button href="/kontakt/">Projekt anfragen</Button><Button href="#projekte" variant="secondary">Projekte ansehen</Button></div>
+        <p class="hero__service-line">{siteConfig.servicesLine}</p>
+      </div>
+      <div class="hero-visual" aria-label="Responsive Vorschau eines Website-Projekts">
+        <div class="hero-visual__grid" aria-hidden="true"></div>
+        <div class="browser browser--main">
+          <div class="browser__bar"><i></i><i></i><i></i><span></span></div>
+          <div class="mock-site">{heroProject?.screenshots ? <img src={withBase(heroProject.screenshots.desktop)} alt={heroProject.screenshots.desktopAlt} width="1440" height="1000" /> : <div class="mock-site__placeholder" aria-hidden="true"></div>}</div>
+        </div>
+        {heroProject?.screenshots && <div class="phone-preview"><img src={withBase(heroProject.screenshots.mobile)} alt={heroProject.screenshots.mobileAlt} width="390" height="844" /></div>}
+        {heroProject && <div class="hero-project-meta"><span data-short="Live-Projekt">{heroProject.heroLabel ?? 'Live-Projekt'}</span><Button href={heroProject.externalUrl!} variant="text" external>Projekt ansehen</Button></div>}
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-labelledby="trust-title"><div class="container trust-strip__inner"><h2 id="trust-title">Von der ersten Idee bis zum professionellen Online-Auftritt.</h2><ul class="trust-list"><li><span>01</span>Persönlicher Ansprechpartner</li><li><span>02</span>Individuelles Design</li><li><span>03</span>Technisch saubere Umsetzung</li><li><span>04</span>Verständliche Betreuung</li></ul></div></section>
+
+  <section class="content-section light-section" id="leistungen">
+    <div class="container">
+      <SectionHeading eyebrow="Leistungen" title="Mehr als nur eine schöne Website." text="Ein professioneller Online-Auftritt besteht nicht nur aus Design. Technik, Auffindbarkeit, Domain, E-Mail und eine klare Nutzerführung müssen zusammenspielen." />
+      <div class="services-grid">{services.map((service) => <article class="service-card reveal"><span class="service-card__number">{service.number}</span><h3>{service.title}</h3><p>{service.description}</p><ul>{service.benefits.slice(0, 5).map((item) => <li>{item}</li>)}</ul></article>)}</div>
+      <p class="section-action"><Button href="/leistungen/" variant="text">Alle Leistungen im Detail</Button></p>
+    </div>
+  </section>
+
+  <section class="positioning lavender-section">
+    <div class="container">
+      <div class="positioning__top reveal"><h2>Keine anonyme Agentur.<br />Kein unpersönlicher <em>Baukasten.</em></h2><p>Bei Armbrüster Digital sprechen Sie direkt mit der Person, die Ihre Website plant und umsetzt. Entscheidungen werden verständlich erklärt, Lösungen individuell entwickelt und unnötige Komplexität vermieden.</p></div>
+      <div class="contrast-list"><div class="contrast-item reveal"><span>01</span><strong>Persönlich</strong><span>anonym</span></div><div class="contrast-item reveal"><span>02</span><strong>Individuell</strong><span>austauschbar</span></div><div class="contrast-item reveal"><span>03</span><strong>Verständlich</strong><span>unnötig kompliziert</span></div></div>
+    </div>
+  </section>
+
+  <section class="content-section white-section" id="projekte">
+    <div class="container"><SectionHeading eyebrow="Ausgewählte Projekte" title="Aus Ideen werden digitale Auftritte." text="Individuelle Lösungen beginnen nicht mit einer Vorlage, sondern mit dem Unternehmen, den Menschen und einem klaren Ziel." />
+      <div class="project-list">{projects.map((project, index) => <ProjectFeature project={project} index={index} />)}</div>
+    </div>
+  </section>
+
+  <section class="content-section dark-section">
+    <div class="container"><SectionHeading eyebrow="Zusammenarbeit" title="Klarer Ablauf. Persönliche Zusammenarbeit." text="Transparente Schritte sorgen dafür, dass Sie jederzeit wissen, wo Ihr Projekt steht und welche Entscheidung als Nächstes ansteht." />
+      <div class="timeline">{processSteps.map((step) => <article class="timeline-item reveal"><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="content-section light-section" id="ueber-mich">
+    <div class="container about-teaser">
+      <div class="portrait reveal"><img src={withBase(siteConfig.images.portrait)} alt="Neutraler Platzhalter für ein zukünftiges Porträt von Philipp Armbrüster" width="800" height="1000" loading="lazy" /></div>
+      <div class="about-copy reveal"><p class="eyebrow">Über Armbrüster Digital</p><h2>Persönlich betreut. Professionell umgesetzt.</h2><p>Ich bin Philipp Armbrüster und entwickle mit Armbrüster Digital moderne Online-Auftritte für kleine Unternehmen und Selbstständige. Dabei verbinde ich technisches Verständnis mit einem klaren Blick für Gestaltung, Benutzerfreundlichkeit und verständliche digitale Lösungen.</p><p>Als persönlicher Ansprechpartner begleite ich Ihr Projekt von der ersten Idee über die technische Umsetzung bis zur Veröffentlichung – ohne anonyme Agenturprozesse und unnötige Fachsprache.</p><ul class="about-points"><li>Persönlicher Ansprechpartner</li><li>Individuelle Lösungen</li><li>Verständliche Kommunikation</li><li>Strukturierte Umsetzung</li><li>Deutschlandweite Zusammenarbeit</li><li>Standort Lübeck</li></ul><Button href="/ueber-mich/" variant="secondary">Mehr über mich</Button></div>
+    </div>
+  </section>
+  <PricingSection compact />
+  <CallToAction />
+</BaseLayout>

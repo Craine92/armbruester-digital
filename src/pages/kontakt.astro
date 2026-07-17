@@ -1,0 +1,62 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { contactConfig, siteConfig } from '@/config/site';
+import ContactPrivacyNotice from '@/components/ContactPrivacyNotice.astro';
+import { withBase } from '@/utils/paths';
+const projectTypes = ['Neue Website','Überarbeitung einer bestehenden Website','Domain und E-Mail','SEO-Grundlagen','Digitale Präsenz','Betreuung','Noch unsicher'];
+const budgets = ['Unter 1.000 Euro','1.000 bis 2.000 Euro','2.000 bis 4.000 Euro','Über 4.000 Euro','Noch offen'];
+---
+<BaseLayout title="Kontakt | Projekt anfragen" description="Erzählen Sie Philipp Armbrüster von Ihrem Website-Projekt. Persönliche und unverbindliche Anfrage für Webdesign, SEO-Grundlagen und digitale Präsenz." path="/kontakt/" breadcrumbs={[{name:'Startseite',path:'/'},{name:'Kontakt',path:'/kontakt/'}]}>
+  <section class="page-hero"><div class="container page-hero__inner"><div><p class="eyebrow">Kontakt</p><h1>Erzählen Sie mir von <em>Ihrem Projekt.</em></h1></div><p class="page-hero__intro"><strong>Unverbindlich und persönlich.</strong>Ein paar Eckdaten genügen für den Anfang. Ich melde mich anschließend bei Ihnen.</p></div></section>
+  <section class="content-section"><div class="container contact-layout">
+    <aside class="contact-aside"><p class="eyebrow">Direkter Kontakt</p><h2>Lieber per E-Mail?</h2><p>Sie können Ihre Anfrage auch direkt an mich senden:</p><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><dl><dt>Ansprechpartner</dt><dd>{siteConfig.owner}</dd><dt>Standort</dt><dd>{siteConfig.location}</dd><dt>Zusammenarbeit</dt><dd>{siteConfig.region}</dd></dl></aside>
+    <form class="contact-form" action={contactConfig.endpoint || undefined} method="post" novalidate data-contact-form data-endpoint={contactConfig.endpoint} data-email={contactConfig.email}>
+      <ContactPrivacyNotice />
+      <div class="field"><label for="name">Name *</label><input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" /><p class="field-error" id="name-error"></p></div>
+      <div class="field"><label for="company">Unternehmen *</label><input id="company" name="company" type="text" autocomplete="organization" required aria-describedby="company-error" /><p class="field-error" id="company-error"></p></div>
+      <div class="field"><label for="email">E-Mail *</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" /><p class="field-error" id="email-error"></p></div>
+      <div class="field"><label for="phone">Telefon <span>(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
+      <div class="field"><label for="project-type">Art des Projekts *</label><select id="project-type" name="projectType" required aria-describedby="project-type-error"><option value="">Bitte auswählen</option>{projectTypes.map((type) => <option value={type}>{type}</option>)}</select><p class="field-error" id="project-type-error"></p></div>
+      <div class="field"><label for="website">Bestehende Website <span>(optional)</span></label><input id="website" name="website" type="url" inputmode="url" placeholder="https://" aria-describedby="website-error" /><p class="field-error" id="website-error"></p></div>
+      <div class="field"><label for="budget">Geplantes Budget <span>(optional)</span></label><select id="budget" name="budget"><option value="">Bitte auswählen</option>{budgets.map((budget) => <option value={budget}>{budget}</option>)}</select></div>
+      <div class="field"><label for="timeline">Gewünschter Zeitraum <span>(optional)</span></label><input id="timeline" name="timeline" type="text" placeholder="z. B. in den nächsten 3 Monaten" /></div>
+      <div class="field field--full"><label for="message">Nachricht *</label><textarea id="message" name="message" required minlength="20" aria-describedby="message-error" placeholder="Worum geht es bei Ihrem Projekt und was möchten Sie erreichen?"></textarea><p class="field-error" id="message-error"></p></div>
+      <div class="honeypot" aria-hidden="true"><label for="website-confirm">Dieses Feld leer lassen</label><input id="website-confirm" name="website_confirm" type="text" tabindex="-1" autocomplete="off" /></div>
+      <div class="checkbox-field field--full"><input id="privacy" name="privacy" type="checkbox" required aria-describedby="privacy-error" /><label for="privacy">Ich habe die <a href={withBase('/datenschutz/')}>Datenschutzhinweise</a> gelesen und bestätige die Verarbeitung meiner Angaben zur Bearbeitung der Anfrage. *</label></div><p class="field-error field--full" id="privacy-error"></p>
+      <div class="form-status" role="status" aria-live="polite" hidden></div>
+      <button class="button button--primary form-submit" type="submit"><span>Anfrage vorbereiten</span><svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11M11 6l4 4-4 4"></path></svg></button>
+      <p class="form-note">Pflichtfelder sind mit * gekennzeichnet. Ohne konfigurierten Formulardienst wird eine E-Mail mit Ihren Angaben vorbereitet; es werden keine Daten automatisch übertragen.</p>
+    </form>
+  </div></section>
+  <script>
+    const initContactForm = () => {
+      const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+      if (!form || form.dataset.ready) return; form.dataset.ready = 'true';
+      const status = form.querySelector<HTMLElement>('.form-status');
+      const fields = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required], input[type="url"]')];
+      const labels: Record<string,string> = { name:'Bitte geben Sie Ihren Namen ein.', company:'Bitte geben Sie Ihr Unternehmen ein.', email:'Bitte geben Sie eine gültige E-Mail-Adresse ein.', projectType:'Bitte wählen Sie eine Projektart.', message:'Bitte beschreiben Sie Ihr Projekt in mindestens 20 Zeichen.', privacy:'Bitte bestätigen Sie die Datenschutzhinweise.', website:'Bitte geben Sie eine vollständige URL mit https:// ein.' };
+      const validate = (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
+        const error = document.getElementById(`${field.id}-error`); let message = '';
+        if (!field.validity.valid) message = labels[field.name] ?? 'Bitte prüfen Sie dieses Feld.';
+        field.setAttribute('aria-invalid', String(Boolean(message))); if (error) error.textContent = message; return !message;
+      };
+      fields.forEach((field) => { field.addEventListener('blur', () => validate(field)); field.addEventListener('input', () => { if (field.getAttribute('aria-invalid') === 'true') validate(field); }); });
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault(); const valid = fields.map(validate).every(Boolean);
+        if (!valid) { (form.querySelector('[aria-invalid="true"]') as HTMLElement)?.focus(); return; }
+        const honeypot = form.querySelector<HTMLInputElement>('[name="website_confirm"]'); if (honeypot?.value) return;
+        const data = new FormData(form); const endpoint = form.dataset.endpoint;
+        if (endpoint) {
+          try { const response = await fetch(endpoint,{method:'POST',body:data,headers:{Accept:'application/json'}}); if (!response.ok) throw new Error('Form request failed'); form.reset(); if(status){status.hidden=false;status.textContent='Vielen Dank. Ihre Anfrage wurde versendet.';} }
+          catch { if(status){status.hidden=false;status.textContent='Die Anfrage konnte gerade nicht versendet werden. Bitte schreiben Sie alternativ eine E-Mail.';} }
+          return;
+        }
+        const value = (name:string) => String(data.get(name) ?? '').trim();
+        const body = [`Name: ${value('name')}`,`Unternehmen: ${value('company')}`,`E-Mail: ${value('email')}`,`Telefon: ${value('phone') || '–'}`,`Projektart: ${value('projectType')}`,`Bestehende Website: ${value('website') || '–'}`,`Budget: ${value('budget') || '–'}`,`Zeitraum: ${value('timeline') || '–'}`,'',value('message')].join('\n');
+        const mailto = `mailto:${form.dataset.email}?subject=${encodeURIComponent(`Projektanfrage von ${value('name')}`)}&body=${encodeURIComponent(body)}`;
+        if(status){status.hidden=false;status.innerHTML=`Es ist noch kein Formulardienst eingerichtet. Ihr E-Mail-Programm wird geöffnet. Falls das nicht funktioniert, schreiben Sie bitte an <a href="mailto:${form.dataset.email}">${form.dataset.email}</a>.`;}
+        window.location.href = mailto;
+      });
+    }; document.addEventListener('astro:page-load',initContactForm); initContactForm();
+  </script>
+</BaseLayout>

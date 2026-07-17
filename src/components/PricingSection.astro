@@ -1,0 +1,16 @@
+---
+import PricingCard from './PricingCard.astro';
+import SectionHeading from './SectionHeading.astro';
+import Button from './Button.astro';
+import { pricingNotice, projectPackages } from '@/data/pricing';
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<section class="content-section pricing-section light-section" id="preise" aria-labelledby="pricing-title">
+  <div class="container">
+    <div id="pricing-title"><SectionHeading eyebrow="Transparente Orientierung" title="Ein klarer Rahmen für Ihren neuen Auftritt." text="Jedes Projekt ist individuell. Diese Pakete geben Ihnen eine verlässliche erste Orientierung." /></div>
+    <div class="pricing-grid">{projectPackages.map((item) => <PricingCard item={item} compact={compact} />)}</div>
+    <p class="pricing-notice">{pricingNotice}</p>
+    {compact && <p class="section-action"><Button href="/preise/" variant="secondary">Alle Pakete und Betreuung ansehen</Button></p>}
+  </div>
+</section>

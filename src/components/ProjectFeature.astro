@@ -1,0 +1,23 @@
+---
+import type { Project } from '@/data/projects';
+import Button from './Button.astro';
+import { withBase } from '@/utils/paths';
+interface Props { project: Project; index: number; }
+const { project, index } = Astro.props;
+---
+<article class="project-feature reveal" data-categories={project.categories.join('|')}>
+  <div class="project-visual">
+    <img src={withBase(project.image)} alt={project.imageAlt} width="1200" height="760" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+  </div>
+  <div class="project-copy">
+    <p class="eyebrow">{project.eyebrow}</p>
+    <h3>{project.title}</h3>
+    <p>{project.description}</p>
+    <ul class="tag-list" aria-label="Leistungen">{project.services.map((service) => <li>{service}</li>)}</ul>
+    <div class="project-actions">
+      {project.detailUrl && <Button href={project.detailUrl} variant="secondary">Fallstudie ansehen</Button>}
+      {project.externalUrl && <Button href={project.externalUrl} variant="text" external>Website besuchen</Button>}
+      {project.status && <span class="button button--text" aria-label={`Status: ${project.status}`}>{project.status}</span>}
+    </div>
+  </div>
+</article>

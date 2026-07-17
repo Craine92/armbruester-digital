@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import ProjectFeature from '@/components/ProjectFeature.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { projects } from '@/data/projects';
+const categories = ['Alle', 'Unternehmenswebsite', 'Eventwebsite', 'Handwerk', 'Gesundheit', 'Lokale Dienstleister'];
+---
+<BaseLayout title="Projekte | Armbrüster Digital" description="Ausgewählte Webdesign-Projekte und Konzepte von Armbrüster Digital: individuell entwickelt, responsive umgesetzt und klar präsentiert." path="/projekte/" breadcrumbs={[{name:'Startseite',path:'/'},{name:'Projekte',path:'/projekte/'}]}>
+  <section class="page-hero"><div class="container page-hero__inner"><div><p class="eyebrow">Projekte</p><h1>Digitale Auftritte mit <em>eigenem Charakter.</em></h1></div><p class="page-hero__intro"><strong>Individuell statt gleichförmig.</strong> Reale Arbeiten und klar gekennzeichnete Konzepte geben einen Einblick in Gestaltung und Umsetzung.</p></div></section>
+  <section class="content-section"><div class="container"><SectionHeading title="Ausgewählte Arbeiten und Konzepte" text="Noch nicht realisierte Vorhaben sind ausdrücklich als „In Vorbereitung“ gekennzeichnet. Es werden keine erfundenen Kundenprojekte oder Ergebnisse gezeigt." />
+    <div class="filter-bar" role="group" aria-label="Projekte filtern">{categories.map((category, index) => <button class="filter-button" type="button" aria-pressed={index === 0 ? 'true' : 'false'} data-filter={category}>{category}</button>)}</div>
+    <p class="filter-result" aria-live="polite"></p>
+    <div class="project-list" data-project-list>{projects.map((project, index) => <ProjectFeature project={project} index={index} />)}</div>
+  </div></section><CallToAction compact />
+  <script>
+    const initFilters = () => {
+      const list = document.querySelector<HTMLElement>('[data-project-list]');
+      if (!list || list.dataset.ready) return;
+      list.dataset.ready = 'true';
+      const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+      const projects = [...document.querySelectorAll<HTMLElement>('[data-categories]')];
+      const status = document.querySelector<HTMLElement>('.filter-result');
+      buttons.forEach((button) => button.addEventListener('click', () => {
+        const filter = button.dataset.filter ?? 'Alle'; let visible = 0;
+        buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        projects.forEach((project) => { const show = filter === 'Alle' || (project.dataset.categories ?? '').split('|').includes(filter); project.hidden = !show; if (show) visible++; });
+        if (status) status.textContent = `${visible} ${visible === 1 ? 'Projekt' : 'Projekte'} angezeigt.`;
+      }));
+    };
+    document.addEventListener('astro:page-load', initFilters); initFilters();
+  </script>
+</BaseLayout>

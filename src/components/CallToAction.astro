@@ -1,0 +1,17 @@
+---
+import Button from './Button.astro';
+import { siteConfig } from '@/config/site';
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<section class:list={['cta-section', { 'cta-section--compact': compact }]}>
+  <div class="cta-grid" aria-hidden="true"></div>
+  <div class="container cta-content reveal">
+    <p class="eyebrow">Der nächste Schritt</p>
+    <h2>Ihr Unternehmen verdient einen professionellen <em>digitalen Auftritt.</em></h2>
+    <p>Lassen Sie uns unverbindlich über Ihr Vorhaben sprechen und gemeinsam herausfinden, welche Lösung zu Ihrem Unternehmen passt.</p>
+    <Button href="/kontakt/">Projekt unverbindlich anfragen</Button>
+    <small>{siteConfig.region}e Zusammenarbeit · Persönlicher Ansprechpartner aus {siteConfig.location}</small>
+  </div>
+</section>
+

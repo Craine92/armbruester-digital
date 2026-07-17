@@ -1,0 +1,9 @@
+---
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<span class:list={['logo', { 'logo--compact': compact }]} aria-label="Armbrüster Digital">
+  <span class="logo__primary">ARMBRÜSTER</span>
+  <span class="logo__secondary">DIGITAL</span>
+</span>
+

@@ -1,0 +1,40 @@
+---
+import Logo from './Logo.astro';
+import { siteConfig } from '@/config/site';
+import { navigation } from '@/data/navigation';
+import { withBase } from '@/utils/paths';
+const socials = [
+  { label: 'Instagram', url: siteConfig.social.instagram },
+  { label: 'LinkedIn', url: siteConfig.social.linkedin }
+].filter((item) => Boolean(item.url));
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href={withBase('/')} aria-label="Zur Startseite"><Logo /></a>
+        <p>{siteConfig.claim}<br />Persönlich betreut aus {siteConfig.location}.</p>
+      </div>
+      <div class="footer-column">
+        <p class="footer-label">Navigation</p>
+        {navigation.map((item) => <a href={withBase(item.href)}>{item.label}</a>)}
+      </div>
+      <div class="footer-column">
+        <p class="footer-label">Leistungen</p>
+        <a href={withBase('/leistungen/#webdesign')}>Webdesign</a>
+        <a href={withBase('/leistungen/#seo')}>Suchmaschinenoptimierung</a>
+        <a href={withBase('/leistungen/#digitale-praesenz')}>Digitale Präsenz</a>
+      </div>
+      <div class="footer-column">
+        <p class="footer-label">Kontakt</p>
+        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        {siteConfig.phone && <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}>{siteConfig.phone}</a>}
+        {socials.map((item) => <a href={item.url} target="_blank" rel="noopener noreferrer">{item.label}</a>)}
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© {new Date().getFullYear()} {siteConfig.brand} · {siteConfig.owner}</p>
+      <div><a href={withBase('/impressum/')}>Impressum</a><a href={withBase('/datenschutz/')}>Datenschutz</a></div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,70 @@
+---
+import Logo from './Logo.astro';
+import Button from './Button.astro';
+import { navigation } from '@/data/navigation';
+import { withBase } from '@/utils/paths';
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => pathname === withBase(href) || (href !== '/' && pathname.startsWith(withBase(href)));
+---
+<header class="site-header" data-header>
+  <div class="site-header__inner container">
+    <a class="brand-link" href={withBase('/')} aria-label="Armbrüster Digital – Startseite"><Logo /></a>
+    <nav class="desktop-nav" aria-label="Hauptnavigation">
+      {navigation.map((item) => <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <Button href="/kontakt/" class="header-cta">Projekt anfragen</Button>
+      <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav aria-label="Mobile Navigation">
+      {navigation.map((item, index) => <a href={withBase(item.href)} data-menu-link aria-current={isActive(item.href) ? 'page' : undefined}><span>0{index + 1}</span>{item.label}</a>)}
+    </nav>
+    <p>Webdesign · SEO · Digitale Präsenz<br />Persönlich aus Lübeck.</p>
+  </div>
+  <noscript>
+    <style>.menu-toggle{display:none!important}.noscript-nav{display:flex!important}</style>
+    <nav class="noscript-nav container" aria-label="Navigation ohne JavaScript">
+      {navigation.map((item) => <a href={withBase(item.href)}>{item.label}</a>)}
+    </nav>
+  </noscript>
+</header>
+
+<script>
+  const initHeader = () => {
+    const header = document.querySelector<HTMLElement>('[data-header]');
+    const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+    const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+    if (!header || !toggle || !menu || toggle.dataset.ready) return;
+    toggle.dataset.ready = 'true';
+    let previousFocus: HTMLElement | null = null;
+    const links = () => [...menu.querySelectorAll<HTMLElement>('a, button')];
+    const close = (restore = true) => {
+      toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Menü öffnen');
+      header.classList.remove('menu-open'); document.body.classList.remove('nav-open'); menu.hidden = true;
+      if (restore) previousFocus?.focus();
+    };
+    const open = () => {
+      previousFocus = document.activeElement as HTMLElement;
+      menu.hidden = false; toggle.setAttribute('aria-expanded', 'true'); toggle.setAttribute('aria-label', 'Menü schließen');
+      header.classList.add('menu-open'); document.body.classList.add('nav-open'); links()[0]?.focus();
+    };
+    toggle.addEventListener('click', () => toggle.getAttribute('aria-expanded') === 'true' ? close(false) : open());
+    menu.addEventListener('click', (event) => { if ((event.target as Element).closest('a')) close(false); });
+    document.addEventListener('keydown', (event) => {
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      if (event.key === 'Escape') close();
+      if (event.key === 'Tab') {
+        const focusable = [toggle, ...links()]; const first = focusable[0]; const last = focusable.at(-1);
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    });
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  };
+  document.addEventListener('astro:page-load', initHeader); initHeader();
+</script>

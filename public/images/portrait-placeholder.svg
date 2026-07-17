@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Platzhalter für das Porträt von Philipp Armbrüster</title><desc id="desc">Abstrakte neutrale Silhouette, die vor Veröffentlichung durch ein professionelles Porträt ersetzt wird.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#292731"/><stop offset="1" stop-color="#17171c"/></linearGradient><radialGradient id="glow"><stop stop-color="#b69af7" stop-opacity=".28"/><stop offset="1" stop-color="#b69af7" stop-opacity="0"/></radialGradient></defs>
+  <rect width="800" height="1000" fill="url(#bg)"/><circle cx="610" cy="220" r="340" fill="url(#glow)"/><path d="M0 170h800M0 340h800M0 510h800M0 680h800M0 850h800M135 0v1000M305 0v1000M475 0v1000M645 0v1000" stroke="#fff" stroke-opacity=".035"/>
+  <circle cx="400" cy="378" r="132" fill="#34323c" stroke="#b69af7" stroke-opacity=".3"/><path d="M155 900c18-226 107-352 245-352S627 674 645 900" fill="#2b2a32" stroke="#fff" stroke-opacity=".09"/>
+  <rect x="48" y="885" width="704" height="67" rx="5" fill="#1c1c22" fill-opacity=".88" stroke="#fff" stroke-opacity=".1"/><text x="80" y="918" fill="#f7f7fa" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2">PORTRÄT · PLATZHALTER</text><text x="80" y="940" fill="#b9b9c4" font-family="Arial,sans-serif" font-size="12">Vor Veröffentlichung durch ein professionelles Foto ersetzen</text>
+</svg>

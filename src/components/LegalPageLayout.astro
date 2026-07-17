@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+interface Props { title: string; description: string; path: string; }
+const { title, description, path } = Astro.props;
+const pageName = title.split(' | ')[0];
+// Die rechtlichen Inhalte müssen vor Veröffentlichung individuell vervollständigt und geprüft werden.
+---
+<BaseLayout title={title} description={description} path={path} noindex breadcrumbs={[{name:'Startseite',path:'/'},{name:pageName,path}]}>
+  <section class="page-hero"><div class="container"><p class="eyebrow">Rechtliches</p><h1>{pageName}</h1></div></section>
+  <section class="content-section light-section"><div class="container legal-layout">
+    <aside class="legal-warning" role="note"><strong>Wichtiger Bearbeitungshinweis</strong><p>Die rechtlichen Inhalte müssen vor Veröffentlichung individuell vervollständigt und geprüft werden.</p></aside>
+    <article class="prose legal-prose"><slot /></article>
+  </div></section>
+</BaseLayout>

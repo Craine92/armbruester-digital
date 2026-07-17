@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'text';
+  external?: boolean;
+  class?: string;
+}
+import { withBase } from '@/utils/paths';
+const { href, variant = 'primary', external = false, class: className } = Astro.props;
+const resolvedHref = external ? href : withBase(href);
+---
+<a class:list={['button', `button--${variant}`, className]} href={resolvedHref} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
+  <span><slot /></span>
+  <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11M11 6l4 4-4 4" /></svg>
+</a>

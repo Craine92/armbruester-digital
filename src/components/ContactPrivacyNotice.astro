@@ -1,0 +1,8 @@
+---
+import { siteConfig } from '@/config/site';
+import { withBase } from '@/utils/paths';
+---
+<div class="contact-privacy field--full" role="note">
+  <strong>Hinweis zur Datenverarbeitung</strong>
+  <p>Ihre Angaben werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Details finden Sie in den <a href={withBase('/datenschutz/')}>Datenschutzhinweisen</a>. Alternativ können Sie direkt an <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> schreiben.</p>
+</div>

@@ -1,0 +1,54 @@
+---
+import { siteConfig } from '@/config/site';
+import { absoluteUrl, withBase } from '@/utils/paths';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  image?: string;
+  noindex?: boolean;
+  breadcrumbs?: readonly { name: string; path: string }[];
+}
+const { title, description, path = '/', image = siteConfig.images.socialPreview, noindex = false, breadcrumbs = [] } = Astro.props;
+const canonical = absoluteUrl(path);
+const imageUrl = absoluteUrl(image);
+const homepageUrl = absoluteUrl('/');
+const professionalService = {
+  '@context': 'https://schema.org', '@type': 'ProfessionalService',
+  name: siteConfig.brand, url: homepageUrl, image: imageUrl,
+  description: siteConfig.claim, areaServed: 'DE',
+  founder: { '@type': 'Person', name: siteConfig.owner },
+  address: { '@type': 'PostalAddress', addressLocality: siteConfig.location, addressCountry: 'DE' }
+};
+const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: siteConfig.brand, url: homepageUrl, inLanguage: 'de-DE' };
+const person = { '@context': 'https://schema.org', '@type': 'Person', name: siteConfig.owner, jobTitle: 'Webentwickler und persönlicher Ansprechpartner', worksFor: { '@type': 'Organization', name: siteConfig.brand }, address: { '@type': 'PostalAddress', addressLocality: siteConfig.location, addressCountry: 'DE' } };
+const breadcrumbData = breadcrumbs.length ? {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: absoluteUrl(item.path) }))
+} : null;
+---
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+<meta name="theme-color" content="#141418" />
+{noindex && <meta name="robots" content="noindex,follow" />}
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content={siteConfig.brand} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(professionalService)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(person)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(website)} />
+{breadcrumbData && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbData)} />}

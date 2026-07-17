@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { siteConfig } from '@/config/site';
+import { withBase } from '@/utils/paths';
+const details = [
+  ['01','Ausgangssituation','Für die Hochzeit sollte eine zentrale, persönliche Anlaufstelle entstehen, auf der Gäste alle organisatorischen Informationen unkompliziert finden.'],
+  ['02','Ziel','Ein stimmiger digitaler Begleiter, der Vorfreude vermittelt, Fragen beantwortet und auf Smartphones ebenso klar funktioniert wie am Desktop.'],
+  ['03','Gestaltung','Das Design wurde passend zum Anlass individuell entwickelt. Typografie, Bildsprache, Abstände und Farben bilden eine ruhige, persönliche Gesamtwirkung.'],
+  ['04','Technische Umsetzung','Die statische Website wurde responsiv, schnell und wartungsarm umgesetzt und anschließend über GitHub Pages veröffentlicht.'],
+  ['05','Mobile Ansicht','Navigation, Ablauf, Galerie, FAQ und Kontaktwege wurden für kleine Bildschirme priorisiert und auf eine komfortable Bedienung mit dem Finger ausgelegt.'],
+  ['06','Ergebnis','Eine eigenständige Veranstaltungswebsite, die Informationen und persönliche Gestaltung verbindet – ohne erfundene Leistungskennzahlen.']
+];
+const functions = ['Veranstaltungsinformationen','Tagesablauf','Responsive Bildergalerie','Standortintegration','FAQ-Bereich','Live-Countdown','Externe Foto-Upload-Verknüpfung','Performanceoptimierung'];
+---
+<BaseLayout title="Hochzeitswebsite Justine & Philipp | Projekt" description="Fallstudie zur individuell entwickelten Hochzeitswebsite für Justine und Philipp mit Galerie, Ablauf, Countdown, FAQ und mobiler Optimierung." path="/projekte/hochzeitswebsite/" breadcrumbs={[{name:'Startseite',path:'/'},{name:'Projekte',path:'/projekte/'},{name:'Hochzeitswebsite',path:'/projekte/hochzeitswebsite/'}]}>
+  <section class="page-hero"><div class="container page-hero__inner"><div><p class="eyebrow">Fallstudie · Eventwebsite</p><h1>Justine & Philipp – eine Website für einen <em>besonderen Tag.</em></h1></div><div class="page-hero__intro"><strong>Individuell konzipiert und realisiert.</strong><p>Persönliches Design, klare Informationen und eine konsequent mobile Umsetzung.</p><Button href={siteConfig.projects.weddingWebsite} variant="text" external>Live-Website besuchen</Button></div></div></section>
+  <section class="content-section"><div class="container"><div class="project-visual case-hero"><img src={withBase('/images/project-wedding.svg')} alt="Stilisierte Vorschau der Hochzeitswebsite Justine und Philipp" width="1200" height="760" /></div></div></section>
+  <section class="content-section surface-section"><div class="container"><SectionHeading eyebrow="Projektüberblick" title="Persönliche Gestaltung. Praktischer Nutzen." text="Die Website bündelt alle wichtigen Informationen und übersetzt den Charakter der Veranstaltung in ein eigenständiges digitales Erlebnis." /><div class="detail-grid">{details.map(([number,title,text]) => <article class="detail-card reveal"><span>{number}</span><h2>{title}</h2><p>{text}</p></article>)}</div></div></section>
+  <section class="content-section"><div class="container"><SectionHeading eyebrow="Funktionen" title="Alles Wichtige an einem Ort." /><ul class="feature-list">{functions.map((item) => <li>{item}</li>)}</ul><p class="case-link"><Button href={siteConfig.projects.weddingWebsite} external>Website öffnen</Button></p></div></section><CallToAction compact />
+</BaseLayout>
