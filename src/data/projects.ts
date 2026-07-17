@@ -21,14 +21,6 @@ export interface Project {
 
 export const projects: readonly Project[] = [
   {
-    slug: 'hochzeitswebsite-justine-philipp', title: 'Justine & Philipp', eyebrow: 'Hochzeitswebsite · Realisiertes Projekt',
-    description: 'Eine individuell entwickelte Hochzeitswebsite mit persönlichem Design, Veranstaltungsinformationen, Ablauf, Galerie, Standortintegration, FAQ-Bereich, Countdown und mobiler Optimierung.',
-    categories: ['Eventwebsite'],
-    services: ['Konzeption', 'Individuelles Webdesign', 'Responsive Umsetzung', 'Galerie', 'Countdown', 'Performance'],
-    image: 'images/project-wedding.svg', imageAlt: 'Stilisierte Vorschau der Hochzeitswebsite Justine und Philipp',
-    externalUrl: siteConfig.projects.weddingWebsite, detailUrl: '/projekte/hochzeitswebsite/'
-  },
-  {
     slug: 'dirk-kuhlmann-garten-landschaftsbau', title: 'Dirk Kuhlmann Garten- & Landschaftsbau', eyebrow: 'Unternehmenswebsite · Realisiertes Projekt',
     description: 'Unternehmenswebsite für einen regionalen Garten- und Landschaftsbaubetrieb mit klarer Leistungsübersicht, Projektbereich und direkten Kontaktmöglichkeiten.',
     categories: ['Unternehmenswebsite', 'Handwerk', 'Lokale Dienstleister'],
@@ -42,7 +34,16 @@ export const projects: readonly Project[] = [
     },
     featuredInHero: true,
     heroLabel: 'Unternehmenswebsite · Garten- und Landschaftsbau',
-    externalUrl: 'https://craine92.github.io/Galabau-Kuhlmann/'
+    externalUrl: 'https://craine92.github.io/Galabau-Kuhlmann/',
+    detailUrl: '/projekte/galabau-kuhlmann/'
+  },
+  {
+    slug: 'hochzeitswebsite-justine-philipp', title: 'Justine & Philipp', eyebrow: 'Hochzeitswebsite · Realisiertes Projekt',
+    description: 'Eine individuell entwickelte Hochzeitswebsite mit persönlichem Design, Veranstaltungsinformationen, Ablauf, Galerie, Standortintegration, FAQ-Bereich, Countdown und mobiler Optimierung.',
+    categories: ['Eventwebsite'],
+    services: ['Konzeption', 'Individuelles Webdesign', 'Responsive Umsetzung', 'Galerie', 'Countdown', 'Performance'],
+    image: 'images/project-wedding.svg', imageAlt: 'Stilisierte Vorschau der Hochzeitswebsite Justine und Philipp',
+    externalUrl: siteConfig.projects.weddingWebsite, detailUrl: '/projekte/hochzeitswebsite/'
   },
   {
     slug: 'podologische-praxis', title: 'Podologische Praxis', eyebrow: 'Konzept · In Vorbereitung',

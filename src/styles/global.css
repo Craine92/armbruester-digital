@@ -64,6 +64,37 @@
 @media(max-width:700px){.hero h1{font-size:clamp(2.75rem,13vw,4.4rem)}.phone-preview{width:27%;height:48%}.pricing-card{padding:1.35rem}.dark-section .timeline-item span{background:var(--dark)}}
 @media(max-width:390px){.hero h1{font-size:clamp(2.45rem,12.5vw,3.1rem)}.phone-preview{right:0;width:30%}}
 
+/* Accessible, viewport-safe mobile navigation */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+html.nav-open,body.nav-open{overflow:hidden;overscroll-behavior:none}
+body.nav-open{position:fixed;width:100%}
+.site-header{isolation:isolate}
+.site-header.is-scrolled:not(.menu-open){height:4.8rem;background:rgba(20,20,24,.9);border-color:var(--color-border);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.site-header.menu-open{height:4.8rem;background:#141418;border-color:var(--color-border);backdrop-filter:none;-webkit-backdrop-filter:none}
+.site-header__inner{position:relative;z-index:20}
+.brand-link{z-index:21}
+.menu-toggle{z-index:22;background:#141418}
+.mobile-menu{position:fixed;inset:0;width:100%;height:100dvh;min-height:100vh;display:flex;flex-direction:column;padding:calc(7rem + env(safe-area-inset-top)) var(--gutter) calc(2rem + env(safe-area-inset-bottom));z-index:10;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:#141418;animation:menuFadeIn .24s ease-out}
+.mobile-menu nav{flex:none}
+.mobile-menu nav a[aria-current=page]{color:var(--color-primary-soft)}
+.mobile-menu>p{position:static;margin:auto 0 0;padding-top:2rem;font-size:.8rem}
+.mobile-menu[hidden]{display:none}
+@keyframes menuFadeIn{from{opacity:0;transform:translateY(-.4rem)}to{opacity:1;transform:none}}
+
+/* The complete comparison remains available to assistive technology. */
+.contrast-item{display:block;padding:0}
+.contrast-item__visual{display:grid;grid-template-columns:5rem 1fr auto;align-items:center;padding:1.8rem 0;border-bottom:1px solid var(--color-border);gap:1rem}
+.contrast-item__visual span:first-child{color:var(--color-primary);font-family:var(--font-serif)}
+.contrast-item__visual strong{font-size:clamp(1.3rem,3vw,2.6rem);font-weight:550;letter-spacing:-.03em}
+.contrast-item__visual span:last-child{color:#74747e;text-decoration:line-through}
+.lavender-section .contrast-item__visual span:last-child{color:#65636e}
+
+.pricing-notices{display:grid;gap:.8rem;max-width:900px;margin-top:2rem}
+.pricing-notices .pricing-notice{max-width:none;margin:0}
+
+@media(max-width:700px){.contrast-item__visual{grid-template-columns:3rem 1fr}.contrast-item__visual span:last-child{display:none}}
+.case-screens{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.28fr);gap:clamp(1rem,3vw,2rem);align-items:end}.case-screens .case-hero{max-width:none}.case-phone img{aspect-ratio:390/844;object-fit:cover;object-position:top}@media(max-width:700px){.case-screens{grid-template-columns:1fr}.case-phone{width:min(60%,260px);margin:-2rem 1rem 0 auto}}
+
 /* Hero project reference and compact service overview */
 @media(min-width:961px){.hero{padding:9.5rem 0 3.5rem}}
 .mock-site>img{background:var(--dark-soft)}

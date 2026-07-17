@@ -32,14 +32,14 @@ export const carePackages: readonly PricingPackage[] = [
   {
     name: 'Basis',
     price: 'ab 49 € / Monat',
-    description: 'Solide technische Begleitung für einen dauerhaft verlässlichen Auftritt.',
-    features: ['Hosting', 'Technische Kontrolle', 'Kleinere Anpassungen nach Vereinbarung']
+    description: 'Solide technische Begleitung mit einem klar definierten Zeitrahmen für kleine laufende Anpassungen.',
+    features: ['Hosting beziehungsweise technische Bereitstellung nach Vereinbarung', 'Regelmäßige technische Kontrolle', 'Eine kleine Inhaltsanpassung pro Monat bis maximal 20 Minuten', 'Nicht genutzte Bearbeitungszeit verfällt', 'Größere Änderungen werden vorher transparent angeboten']
   },
   {
     name: 'Komfort',
     price: 'ab 99 € / Monat',
-    description: 'Persönliche, regelmäßige Betreuung für Inhalte und Weiterentwicklung.',
-    features: ['Regelmäßige Änderungen', 'Austausch von Bildern und Texten', 'Persönliche Betreuung', 'Technische Weiterentwicklung nach Vereinbarung']
+    description: 'Persönliche, regelmäßige Betreuung mit mehr Zeit für die Pflege bestehender Inhalte.',
+    features: ['Regelmäßige technische Kontrolle', 'Austausch und Anpassung vorhandener Bilder und Texte', 'Bis zu 60 Minuten Inhaltsanpassungen pro Monat', 'Nicht genutzte Bearbeitungszeit verfällt', 'Umfangreiche Erweiterungen werden separat angeboten']
   },
   {
     name: 'Einzeländerungen',
@@ -49,4 +49,8 @@ export const carePackages: readonly PricingPackage[] = [
   }
 ] as const;
 
-export const pricingNotice = 'Der genaue Preis richtet sich nach Umfang, Inhalten und gewünschten Funktionen. Nach einem unverbindlichen Erstgespräch erhalten Sie ein transparentes Angebot.';
+export const pricingNotices = [
+  'Alle Pakete dienen als erste Orientierung. Der endgültige Leistungsumfang, die Anzahl der Seiten, Korrekturschleifen und individuellen Funktionen werden vor Projektbeginn in einem transparenten Angebot festgehalten.',
+  'Kosten für Domain, E-Mail-Postfächer, kostenpflichtige externe Dienste, Lizenzen oder besondere Hostingangebote sind nicht automatisch im Projektpreis enthalten, sofern dies nicht ausdrücklich vereinbart wurde.',
+  'Texte, Bilder und Logos werden grundsätzlich vom Auftraggeber bereitgestellt. Eine inhaltliche Aufbereitung oder Erstellung kann nach Vereinbarung zusätzlich angeboten werden.'
+] as const;

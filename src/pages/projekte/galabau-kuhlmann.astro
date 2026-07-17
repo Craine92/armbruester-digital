@@ -1,0 +1,39 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { withBase } from '@/utils/paths';
+
+const liveUrl = 'https://craine92.github.io/Galabau-Kuhlmann/';
+const details = [
+  ['01', 'Ausgangssituation', 'Ein regionaler Garten- und Landschaftsbaubetrieb benötigt einen modernen, übersichtlichen und auf mobilen Geräten gut nutzbaren Online-Auftritt.'],
+  ['02', 'Ziel', 'Leistungen und Projekte verständlich darstellen, Vertrauen schaffen und Interessenten eine direkte Kontaktaufnahme ermöglichen.'],
+  ['03', 'Konzeption', 'Eine klare Informationsstruktur, die regionale Positionierung, eine natürliche Farbwelt und ein starker Fokus auf Projektbilder prägen den Auftritt.'],
+  ['04', 'Umsetzung', 'Das individuelle Webdesign wurde responsiv entwickelt, für eine schnelle Auslieferung optimiert und über GitHub Pages veröffentlicht.'],
+  ['05', 'Mobile Nutzung', 'Navigation, Leistungsübersicht, Projektgalerie und Kontaktmöglichkeiten wurden für kleine Bildschirme und die Bedienung per Touch ausgerichtet.'],
+  ['06', 'Ergebnis', 'Ein moderner und übersichtlicher Unternehmensauftritt, der den Betrieb und seine Leistungen professionell präsentiert.']
+];
+const functions = ['Individuelles Webdesign', 'Responsive Entwicklung', 'Leistungsübersicht', 'Projektgalerie', 'Kontaktmöglichkeiten', 'Standort- und Regionsbezug', 'Mobile Navigation', 'Performanceoptimierung', 'GitHub-Pages-Deployment'];
+---
+<BaseLayout title="Dirk Kuhlmann Garten- & Landschaftsbau | Projekt" description="Fallstudie zur Unternehmenswebsite für Dirk Kuhlmann Garten- und Landschaftsbau mit Leistungsübersicht, Projektgalerie und responsiver Umsetzung." path="/projekte/galabau-kuhlmann/" breadcrumbs={[{name:'Startseite',path:'/'},{name:'Projekte',path:'/projekte/'},{name:'Garten- und Landschaftsbau',path:'/projekte/galabau-kuhlmann/'}]}>
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <div><p class="eyebrow">Fallstudie · Unternehmenswebsite</p><h1>Dirk Kuhlmann Garten- & Landschaftsbau – <em>regional sichtbar.</em></h1></div>
+      <div class="page-hero__intro"><strong>Individuell konzipiert und realisiert.</strong><p>Ein klarer, natürlicher und mobil gut nutzbarer Online-Auftritt für einen regionalen Fachbetrieb.</p><Button href={liveUrl} variant="text" external>Live-Website besuchen</Button></div>
+    </div>
+  </section>
+  <section class="content-section">
+    <div class="container case-screens">
+      <div class="project-visual case-hero"><img src={withBase('/projects/dirk-kuhlmann-desktop.png')} alt="Desktopansicht der Website von Dirk Kuhlmann Garten- und Landschaftsbau" width="1440" height="1000" /></div>
+      <div class="project-visual case-phone"><img src={withBase('/projects/dirk-kuhlmann-mobile.png')} alt="Smartphoneansicht der Website von Dirk Kuhlmann Garten- und Landschaftsbau" width="390" height="844" /></div>
+    </div>
+  </section>
+  <section class="content-section surface-section">
+    <div class="container"><SectionHeading eyebrow="Projektüberblick" title="Klare Leistungen. Natürliche Gestaltung." text="Die Website verbindet eine verständliche Nutzerführung mit regionaler Positionierung und einer Bildsprache, die die praktische Arbeit des Betriebs in den Mittelpunkt stellt." /><div class="detail-grid">{details.map(([number,title,text]) => <article class="detail-card reveal"><span>{number}</span><h2>{title}</h2><p>{text}</p></article>)}</div></div>
+  </section>
+  <section class="content-section">
+    <div class="container"><SectionHeading eyebrow="Umsetzung" title="Für Betrieb und Interessenten gedacht." /><ul class="feature-list">{functions.map((item) => <li>{item}</li>)}</ul><p class="case-link"><Button href={liveUrl} external>Website öffnen</Button></p></div>
+  </section>
+  <CallToAction compact />
+</BaseLayout>
