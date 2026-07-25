@@ -31,9 +31,6 @@ export const siteConfig = {
   images: {
     portrait: 'images/portrait-placeholder.svg',
     socialPreview: 'images/social-preview.png'
-  },
-  projects: {
-    weddingWebsite: 'https://hochzeit-philipp-justine.de'
   }
 } as const;
 

@@ -47,7 +47,7 @@ public/
 
 ## Persönliche Daten anpassen
 
-Alle zentralen Angaben stehen in `src/config/site.ts`. Dort werden Marke, Inhaber, Domain, E-Mail, Adresse, optionale Steuerkennungen, Social-Media-Links, Bilder und die URL der Hochzeitswebsite gepflegt. Leere Telefon-, Steuer- und Social-Werte werden öffentlich nicht ausgegeben.
+Alle zentralen Angaben stehen in `src/config/site.ts`. Dort werden Marke, Inhaber, Domain, E-Mail, Adresse, optionale Steuerkennungen, Social-Media-Links und Bilder gepflegt. Leere Telefon-, Steuer- und Social-Werte werden öffentlich nicht ausgegeben.
 
 Die Produktionsadresse ist für `https://craine92.github.io/armbruester-digital/` vorkonfiguriert. Canonical-URLs, Sitemap, robots.txt und strukturierte Daten werden einschließlich des Repository-Unterpfads erzeugt.
 
@@ -55,7 +55,7 @@ Die Produktionsadresse ist für `https://craine92.github.io/armbruester-digital/
 
 Neue, tatsächlich realisierte Projekte werden als Objekt in `src/data/projects.ts` ergänzt. Benötigt werden Titel, Beschreibung, Kategorien, Leistungen, lokales Bild und Alt-Text. `detailUrl` und `externalUrl` sind optional.
 
-Für eine eigene Fallstudie wird eine neue Datei unter `src/pages/projekte/` erstellt. Die Hochzeitswebsite dient als strukturelles Beispiel.
+Für eine eigene Fallstudie wird eine neue Datei unter `src/pages/projekte/` erstellt. Die Kuhlmann-Fallstudie dient als strukturelles Beispiel.
 
 ## Bilder pflegen
 

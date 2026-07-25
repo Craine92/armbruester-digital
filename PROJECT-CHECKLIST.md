@@ -13,10 +13,8 @@
 
 ## Bilder und Projekte
 
-- [ ] Projektbild der Hochzeitswebsite durch freigegebene echte Screenshots ersetzen
 - [ ] Nutzungsrechte aller Bilder dokumentieren
 - [x] Eigenes Marken-Social-Preview-Bild im Format 1200 × 630 ergänzt
-- [ ] URL `https://hochzeit-philipp-justine.de` testen und bei Bedarf zentral ändern
 
 ## Kontaktformular
 

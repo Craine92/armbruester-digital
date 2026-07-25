@@ -127,3 +127,11 @@ body.nav-open{position:fixed;width:100%}
 /* The fifth service closes the desktop grid as one intentional full-width card. */
 .services-grid .service-card:last-child:nth-child(odd){grid-column:1/-1;min-height:300px}
 @media(max-width:700px){.services-grid .service-card:last-child:nth-child(odd){grid-column:auto;min-height:auto}}
+
+/* Preserve the live project screenshots and keep both device frames independent. */
+.browser--main{width:76%;height:auto}
+.browser--main .mock-site{height:auto;aspect-ratio:1440/900}
+.mock-site>img,.phone-preview img{object-fit:contain;object-position:top left}
+.phone-preview{right:0;bottom:0;width:18%;height:auto;aspect-ratio:390/844}
+@media(max-width:700px) and (min-width:391px){.browser--main{width:74%}.phone-preview{width:22%}}
+@media(max-width:390px){.hero-visual{min-height:520px}.browser--main{width:100%;top:5%}.phone-preview{right:0;bottom:0;width:29%}}

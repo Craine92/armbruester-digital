@@ -1,6 +1,4 @@
-import { siteConfig } from '@/config/site';
-
-export type ProjectCategory = 'Eventwebsite' | 'Unternehmenswebsite' | 'Handwerk' | 'Lokale Dienstleister';
+export type ProjectCategory = 'Unternehmenswebsite' | 'Handwerk' | 'Lokale Dienstleister';
 
 export interface Project {
   slug: string;
@@ -38,13 +36,5 @@ export const projects: readonly Project[] = [
     heroLabel: 'Unternehmenswebsite · Garten- und Landschaftsbau',
     externalUrl: 'https://kuhlmann-garten.de',
     detailUrl: '/projekte/galabau-kuhlmann/'
-  },
-  {
-    slug: 'hochzeitswebsite-justine-philipp', title: 'Justine & Philipp', eyebrow: 'Hochzeitswebsite · Realisiertes Projekt',
-    description: 'Eine individuell entwickelte Hochzeitswebsite mit persönlichem Design, Veranstaltungsinformationen, Ablauf, Galerie, Standortintegration, FAQ-Bereich, Countdown und mobiler Optimierung.',
-    categories: ['Eventwebsite'],
-    services: ['Konzeption', 'Individuelles Webdesign', 'Responsive Umsetzung', 'Galerie', 'Countdown', 'Performance'],
-    image: 'images/project-wedding.svg', imageAlt: 'Stilisierte Vorschau der Hochzeitswebsite Justine und Philipp', imageWidth: 1200, imageHeight: 760,
-    externalUrl: siteConfig.projects.weddingWebsite, detailUrl: '/projekte/hochzeitswebsite/'
   }
 ];
