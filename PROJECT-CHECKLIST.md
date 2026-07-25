@@ -18,11 +18,11 @@
 
 ## Kontaktformular
 
-- [ ] Entscheiden, ob E-Mail-Fallback oder externer Formulardienst genutzt wird
-- [ ] Optionalen Formular-Endpunkt in `contactConfig.endpoint` eintragen
+- [x] Formspree als externen Formulardienst eingerichtet
+- [x] Formular-Endpunkt in `contactConfig.endpoint` eingetragen
 - [ ] Formulardienst serverseitig validieren und Spam-Schutz konfigurieren
 - [ ] Erfolgs- und Fehlerfall auf Mobilgeräten testen
-- [ ] Datenschutzangaben um den tatsächlichen Formulardienst ergänzen
+- [x] Datenschutzangaben um Formspree ergänzt
 - [ ] Keine geheimen Zugangsdaten im Frontend hinterlegen
 
 ## Rechtliches
