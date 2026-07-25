@@ -8,11 +8,11 @@ const { compact = false } = Astro.props;
 ---
 <section class="content-section pricing-section light-section" id="preise" aria-labelledby="pricing-title">
   <div class="container">
-    <div id="pricing-title"><SectionHeading eyebrow="Transparente Orientierung" title="Ein klarer Rahmen für Ihren neuen Auftritt." text="Jedes Projekt ist individuell. Diese Pakete geben Ihnen eine verlässliche erste Orientierung." /></div>
+    <div id="pricing-title"><SectionHeading eyebrow="Website-Pakete" title="Von der professionellen Onepage bis zur individuellen Komplettlösung." text="Drei klar aufeinander aufbauende Pakete geben Ihnen eine verlässliche Orientierung für Ihren neuen digitalen Auftritt." /></div>
     <div class="pricing-grid">{projectPackages.map((item) => <PricingCard item={item} compact={compact} />)}</div>
     <div class="pricing-notices" aria-label="Hinweise zum Leistungsumfang">
       {pricingNotices.map((notice) => <p class="pricing-notice">{notice}</p>)}
     </div>
-    {compact && <p class="section-action"><Button href="/preise/" variant="secondary">Alle Pakete und Betreuung ansehen</Button></p>}
+    <p class="section-action">{compact ? <Button href="/preise/" variant="secondary">Alle Pakete und Betreuung ansehen</Button> : <Button href="#betreuung" variant="secondary">Betreuung ansehen</Button>}</p>
   </div>
 </section>

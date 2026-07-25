@@ -3,28 +3,87 @@ export interface PricingPackage {
   price: string;
   description: string;
   features: readonly string[];
+  additionalFeatures?: readonly string[];
+  includes?: string;
+  badge?: string;
   featured?: boolean;
+  premium?: boolean;
 }
+
+export const digitalStartFeatures = [
+  'Individuelle Onepage',
+  'Responsives Design für Smartphone, Tablet und Desktop',
+  'Leistungs- und Kontaktbereich',
+  'Technische SEO-Grundlagen',
+  'Domain-Einrichtung',
+  'Eine professionelle E-Mail-Adresse',
+  'Social-Media-Verknüpfungen',
+  'Veröffentlichung der Website'
+] as const;
+
+export const businessAdditionalFeatures = [
+  'Mehrere individuell entwickelte Seiten',
+  'Ausführliche Leistungsdarstellung',
+  'Projekt-, Referenz- oder Bildergalerie',
+  'Lokale SEO-Grundlagen',
+  'Einrichtung der Google Search Console',
+  'Unterstützung beim Google-Unternehmensprofil',
+  'Mehrere professionelle E-Mail-Adressen',
+  'Performance- und Ladezeitoptimierung'
+] as const;
+
+export const businessFeatures = [
+  ...digitalStartFeatures,
+  ...businessAdditionalFeatures
+] as const;
+
+export const individualAdditionalFeatures = [
+  'Individuelle Beratung und ausführliche Konzeption',
+  'Individuelles Webdesign',
+  'Umfangreiche Seiten- und Inhaltsstruktur',
+  'Lokale und deutschlandweite SEO-Ausrichtung nach Bedarf',
+  'Abstimmung von Website und Social-Media-Auftritt',
+  'Individuelle Kontaktformulare',
+  'Besondere Animationen und Interaktionen',
+  'Externe Integrationen nach Vereinbarung',
+  'Mehrsprachigkeit nach Vereinbarung',
+  'Individuelle technische Funktionen nach Vereinbarung',
+  'Vorbereitung für spätere Erweiterungen',
+  'Persönliche Übergabe und Einweisung'
+] as const;
+
+export const individualFeatures = [
+  ...businessFeatures,
+  ...individualAdditionalFeatures
+] as const;
 
 export const projectPackages: readonly PricingPackage[] = [
   {
     name: 'Digital Start',
     price: 'ab 990 €',
     description: 'Für Selbstständige und kleinere Unternehmen, die erstmals professionell online auftreten möchten.',
-    features: ['Individuelle Onepage', 'Responsives Design', 'Leistungs- und Kontaktbereich', 'Technische SEO-Grundlagen', 'Domain-Einrichtung', 'Eine professionelle E-Mail-Adresse', 'Social-Media-Verknüpfungen', 'Veröffentlichung der Website']
+    features: digitalStartFeatures,
+    badge: 'Einstiegspaket'
   },
   {
-    name: 'Business Präsenz',
+    name: 'Business-Präsenz',
     price: 'ab 1.690 €',
     description: 'Für Unternehmen, die ihre Leistungen umfassender darstellen und ihre digitale Sichtbarkeit verbessern möchten.',
-    features: ['Mehrere individuelle Seiten', 'Ausführliche Leistungsdarstellung', 'Projekt- oder Bildergalerie', 'Lokale SEO-Grundlagen', 'Google Search Console', 'Unterstützung beim Google-Unternehmensprofil', 'Mehrere professionelle E-Mail-Adressen', 'Performanceoptimierung', 'Domain-Einrichtung und Veröffentlichung'],
+    features: businessFeatures,
+    additionalFeatures: businessAdditionalFeatures,
+    includes: 'Inklusive aller Leistungen aus Digital Start',
+    badge: 'Beliebte Wahl',
     featured: true
   },
   {
-    name: 'Individuelle Lösung',
+    name: 'Individuelle Komplettlösung',
     price: 'ab 2.490 €',
-    description: 'Für umfangreichere Anforderungen und individuelle Funktionen.',
-    features: ['Individuelles Konzept', 'Umfangreiche Seitenstruktur', 'Besondere Animationen', 'Galerien und Referenzsysteme', 'Mehrsprachigkeit nach Vereinbarung', 'Externe Integrationen', 'Individuelle technische Anforderungen']
+    description: 'Für Unternehmen mit umfangreichen Anforderungen, individuellen Funktionen oder einem vollständigen digitalen Gesamtauftritt. Enthält alle Leistungen der Business-Präsenz und wird individuell erweitert.',
+    features: individualFeatures,
+    additionalFeatures: individualAdditionalFeatures,
+    includes: 'Inklusive aller Leistungen der Business-Präsenz',
+    badge: 'Maximale Flexibilität',
+    premium: true
   }
 ] as const;
 
