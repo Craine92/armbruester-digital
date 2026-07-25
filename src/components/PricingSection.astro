@@ -10,6 +10,21 @@ const { compact = false } = Astro.props;
   <div class="container">
     <div id="pricing-title"><SectionHeading eyebrow="Website-Pakete" title="Von der professionellen Onepage bis zur individuellen Komplettlösung." text="Drei klar aufeinander aufbauende Pakete geben Ihnen eine verlässliche Orientierung für Ihren neuen digitalen Auftritt." /></div>
     <div class="pricing-grid">{projectPackages.map((item) => <PricingCard item={item} compact={compact} />)}</div>
+    {!compact && <section class="pricing-comparison" aria-labelledby="pricing-comparison-title">
+      <header class="pricing-comparison__heading">
+        <h3 id="pricing-comparison-title">Leistungen im Detail vergleichen</h3>
+        <p>Die Pakete bilden den typischen Leistungsumfang ab. Der genaue Umfang wird passend zu Ihrem Unternehmen und Ihren Anforderungen abgestimmt.</p>
+      </header>
+      <div class="pricing-comparison__grid">
+        {projectPackages.map((item) => <article class="pricing-comparison__package">
+          <h4>{item.name}</h4>
+          {item.includes && <p>{item.includes}</p>}
+          <ul aria-label={`Vollständige Leistungsübersicht für ${item.name}`}>
+            {(item.additionalFeatures ?? item.features).map((feature) => <li>{feature}</li>)}
+          </ul>
+        </article>)}
+      </div>
+    </section>}
     <div class="pricing-notices" aria-label="Hinweise zum Leistungsumfang">
       {pricingNotices.map((notice) => <p class="pricing-notice">{notice}</p>)}
     </div>

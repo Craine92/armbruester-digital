@@ -3,16 +3,17 @@ import type { PricingPackage } from '@/data/pricing';
 import Button from './Button.astro';
 interface Props { item: PricingPackage; compact?: boolean; }
 const { item, compact = false } = Astro.props;
-const visibleFeatures = item.additionalFeatures ?? item.features;
+const visibleFeatures = item.cardFeatures ?? item.additionalFeatures ?? item.features;
 ---
 <article class:list={['pricing-card', { 'pricing-card--featured': item.featured, 'pricing-card--premium': item.premium, 'pricing-card--compact': compact }] }>
   {item.badge && <p class="pricing-card__badge">{item.badge}</p>}
   <h3>{item.name}</h3>
   <p class="pricing-card__price">{item.price}</p>
-  <p>{item.description}</p>
+  <p class="pricing-card__description">{item.description}</p>
   {item.includes && <p class="pricing-card__includes">{item.includes}</p>}
   <ul aria-label={`Leistungen im Paket ${item.name}`}>
     {visibleFeatures.slice(0, compact ? 5 : undefined).map((feature) => <li>{feature}</li>)}
   </ul>
+  <span class="pricing-card__spacer" aria-hidden="true"></span>
   <Button href={`/kontakt/?paket=${encodeURIComponent(item.name)}`} variant={item.featured || item.premium ? 'primary' : 'secondary'}>Paket anfragen</Button>
 </article>

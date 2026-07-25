@@ -4,6 +4,7 @@ export interface PricingPackage {
   description: string;
   features: readonly string[];
   additionalFeatures?: readonly string[];
+  cardFeatures?: readonly string[];
   includes?: string;
   badge?: string;
   featured?: boolean;
@@ -57,31 +58,65 @@ export const individualFeatures = [
   ...individualAdditionalFeatures
 ] as const;
 
+const digitalStartCardFeatures = [
+  'Individuelle Onepage',
+  'Responsive Design',
+  'Leistungs- und Kontaktbereich',
+  'Technische SEO-Grundlagen',
+  'Domain-Einrichtung',
+  'Professionelle E-Mail-Adresse',
+  'Veröffentlichung der Website'
+] as const;
+
+const businessCardFeatures = [
+  'Mehrere individuell entwickelte Seiten',
+  'Ausführliche Leistungsdarstellung',
+  'Projekt- oder Bildergalerie',
+  'Lokale SEO-Grundlagen',
+  'Google Search Console',
+  'Unterstützung beim Google-Unternehmensprofil',
+  'Performanceoptimierung'
+] as const;
+
+const individualCardFeatures = [
+  'Ausführliche Beratung und Konzeption',
+  'Vollständig individuelles Webdesign',
+  'Komplexe Seiten- und Inhaltsstruktur',
+  'Individuelle Formulare und Funktionen',
+  'Animationen und externe Integrationen',
+  'Mehrsprachigkeit nach Vereinbarung',
+  'Vorbereitung für spätere Erweiterungen'
+] as const;
+
 export const projectPackages: readonly PricingPackage[] = [
   {
     name: 'Digital Start',
     price: 'ab 990 €',
     description: 'Für Selbstständige und kleinere Unternehmen, die erstmals professionell online auftreten möchten.',
     features: digitalStartFeatures,
+    cardFeatures: digitalStartCardFeatures,
+    includes: 'Professioneller Einstieg',
     badge: 'Einstiegspaket'
   },
   {
     name: 'Business-Präsenz',
     price: 'ab 1.690 €',
-    description: 'Für Unternehmen, die ihre Leistungen umfassender darstellen und ihre digitale Sichtbarkeit verbessern möchten.',
+    description: 'Für Unternehmen, die ihre Leistungen ausführlicher präsentieren und ihre digitale Sichtbarkeit verbessern möchten.',
     features: businessFeatures,
     additionalFeatures: businessAdditionalFeatures,
-    includes: 'Inklusive aller Leistungen aus Digital Start',
+    cardFeatures: businessCardFeatures,
+    includes: 'Alles aus Digital Start inklusive',
     badge: 'Beliebte Wahl',
     featured: true
   },
   {
     name: 'Individuelle Komplettlösung',
     price: 'ab 2.490 €',
-    description: 'Für Unternehmen mit umfangreichen Anforderungen, individuellen Funktionen oder einem vollständigen digitalen Gesamtauftritt. Enthält alle Leistungen der Business-Präsenz und wird individuell erweitert.',
+    description: 'Für umfangreiche Anforderungen, individuelle Funktionen und einen vollständigen digitalen Unternehmensauftritt.',
     features: individualFeatures,
     additionalFeatures: individualAdditionalFeatures,
-    includes: 'Inklusive aller Leistungen der Business-Präsenz',
+    cardFeatures: individualCardFeatures,
+    includes: 'Alles aus Business-Präsenz inklusive',
     badge: 'Maximale Flexibilität',
     premium: true
   }
