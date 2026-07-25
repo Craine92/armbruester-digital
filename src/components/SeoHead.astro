@@ -14,15 +14,33 @@ const { title, description, path = '/', image = siteConfig.images.socialPreview,
 const canonical = absoluteUrl(path);
 const imageUrl = absoluteUrl(image);
 const homepageUrl = absoluteUrl('/');
-const professionalService = {
-  '@context': 'https://schema.org', '@type': 'ProfessionalService',
-  name: siteConfig.brand, url: homepageUrl, image: imageUrl,
-  description: siteConfig.claim, areaServed: 'DE',
-  founder: { '@type': 'Person', name: siteConfig.owner },
-  address: { '@type': 'PostalAddress', addressLocality: siteConfig.location, addressCountry: 'DE' }
+const organization = {
+  '@context': 'https://schema.org', '@type': 'Organization',
+  name: siteConfig.brand, alternateName: siteConfig.alternateName, url: homepageUrl,
+  email: siteConfig.email,
+  logo: absoluteUrl('/favicon.svg'),
+  founder: { '@type': 'Person', name: siteConfig.owner }
 };
-const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: siteConfig.brand, url: homepageUrl, inLanguage: 'de-DE' };
-const person = { '@context': 'https://schema.org', '@type': 'Person', name: siteConfig.owner, jobTitle: 'Webentwickler und persönlicher Ansprechpartner', worksFor: { '@type': 'Organization', name: siteConfig.brand }, address: { '@type': 'PostalAddress', addressLocality: siteConfig.location, addressCountry: 'DE' } };
+const localBusiness = {
+  '@context': 'https://schema.org', '@type': 'ProfessionalService',
+  name: siteConfig.brand, alternateName: siteConfig.alternateName, url: homepageUrl, image: imageUrl,
+  description: siteConfig.claim, email: siteConfig.email,
+  areaServed: [
+    { '@type': 'City', name: 'Lübeck' },
+    { '@type': 'Place', name: 'Travemünde' },
+    { '@type': 'AdministrativeArea', name: 'Schleswig-Holstein' }
+  ],
+  founder: { '@type': 'Person', name: siteConfig.owner },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: siteConfig.address.street,
+    postalCode: siteConfig.address.postalCode,
+    addressLocality: siteConfig.address.city,
+    addressCountry: 'DE'
+  }
+};
+const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: siteConfig.brand, alternateName: siteConfig.alternateName, url: homepageUrl, inLanguage: 'de-DE' };
+const person = { '@context': 'https://schema.org', '@type': 'Person', name: siteConfig.owner, jobTitle: 'Webentwickler und persönlicher Ansprechpartner', email: siteConfig.email, worksFor: { '@type': 'Organization', name: siteConfig.brand }, address: { '@type': 'PostalAddress', streetAddress: siteConfig.address.street, postalCode: siteConfig.address.postalCode, addressLocality: siteConfig.address.city, addressCountry: 'DE' } };
 const breadcrumbData = breadcrumbs.length ? {
   '@context': 'https://schema.org', '@type': 'BreadcrumbList',
   itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: absoluteUrl(item.path) }))
@@ -35,8 +53,9 @@ const breadcrumbData = breadcrumbs.length ? {
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
 <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+<link rel="apple-touch-icon" href={withBase('/favicon.svg')} />
 <meta name="theme-color" content="#141418" />
-{noindex && <meta name="robots" content="noindex,follow" />}
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:site_name" content={siteConfig.brand} />
@@ -48,7 +67,8 @@ const breadcrumbData = breadcrumbs.length ? {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
-<script is:inline type="application/ld+json" set:html={JSON.stringify(professionalService)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(organization)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
 <script is:inline type="application/ld+json" set:html={JSON.stringify(person)} />
 <script is:inline type="application/ld+json" set:html={JSON.stringify(website)} />
 {breadcrumbData && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbData)} />}

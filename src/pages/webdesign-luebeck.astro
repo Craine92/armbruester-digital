@@ -1,0 +1,92 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { processSteps } from '@/data/process';
+import { withBase } from '@/utils/paths';
+
+const audiences = [
+  ['Selbstständige', 'Ein klarer Auftritt erklärt Ihr Angebot, zeigt Ihre Arbeitsweise und macht die Kontaktaufnahme einfach.'],
+  ['Handwerksbetriebe', 'Leistungen, Einsatzgebiet und echte Projektbeispiele werden auch auf dem Smartphone schnell erfassbar.'],
+  ['Praxen und lokale Dienstleister', 'Verständliche Informationen, eine ruhige Nutzerführung und gut auffindbare Kontaktwege schaffen Orientierung.']
+];
+---
+<BaseLayout
+  title="Webdesigner in Lübeck für kleine Unternehmen | Armbrüster Digital"
+  description="Persönliches Webdesign in Lübeck für kleine Unternehmen, Selbstständige, Handwerksbetriebe, Praxen und lokale Dienstleister – responsive, schnell und verständlich."
+  path="/webdesign-luebeck/"
+  breadcrumbs={[{name:'Startseite',path:'/'},{name:'Webdesign Lübeck',path:'/webdesign-luebeck/'}]}
+>
+  <nav class="breadcrumbs container" aria-label="Brotkrümelnavigation">
+    <ol><li><a href={withBase('/')}>Startseite</a></li><li aria-current="page">Webdesign Lübeck</li></ol>
+  </nav>
+
+  <section class="page-hero local-hero">
+    <div class="container page-hero__inner">
+      <div><p class="eyebrow">Webdesign Lübeck</p><h1>Websites für kleine Unternehmen, die vor Ort <em>verstanden und gefunden werden.</em></h1></div>
+      <div class="page-hero__intro"><strong>Persönlich geplant in Lübeck.</strong><p>Armbrüster Digital entwickelt moderne Unternehmenswebsites für Selbstständige, Handwerksbetriebe, Praxen und lokale Dienstleister in Lübeck, Travemünde und Umgebung.</p><Button href="/kontakt/">Website-Projekt besprechen</Button></div>
+    </div>
+  </section>
+
+  <section class="content-section light-section">
+    <div class="container local-intro">
+      <SectionHeading eyebrow="Eine Website mit Aufgabe" title="Nicht nur moderner aussehen, sondern leichter überzeugen." text="Eine gute Unternehmenswebsite beantwortet die wichtigsten Fragen, bevor ein Interessent anruft oder eine E-Mail schreibt." />
+      <div class="prose">
+        <p>Viele ältere Websites sind auf Smartphones schwer lesbar, laden unnötig langsam oder verstecken wichtige Leistungen in einer unklaren Navigation. Manche zeigen zwar schöne Bilder, erklären aber nicht deutlich, für wen das Angebot gedacht ist und wie die Zusammenarbeit beginnt.</p>
+        <p>Beim Webdesign für Lübecker Unternehmen verbinde ich deshalb Gestaltung, Inhalt und Technik. Besucher sollen schnell erkennen, was Sie anbieten, in welcher Region Sie tätig sind und wie sie Sie erreichen. Gleichzeitig erhält Google eine saubere, nachvollziehbare Seitenstruktur.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section white-section">
+    <div class="container">
+      <SectionHeading eyebrow="Technische Grundlage" title="Auf jedem Gerät schnell und verständlich." />
+      <div class="detail-grid">
+        <article class="detail-card"><span>01</span><h2>Responsive Darstellung</h2><p>Layout, Navigation, Texte und Kontaktwege werden für Smartphones, Tablets und große Bildschirme entwickelt und geprüft.</p></article>
+        <article class="detail-card"><span>02</span><h2>Schnelle Ladezeiten</h2><p>Schlanker Code, passend dimensionierte Bilder und statische Auslieferung reduzieren Wartezeiten und stabilisieren die Darstellung.</p></article>
+        <article class="detail-card"><span>03</span><h2>Klare Navigation</h2><p>Eine verständliche Struktur hilft Interessenten, Leistungen, Arbeitsweise, Referenzen und Kontaktmöglichkeiten ohne Umwege zu finden.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section lavender-section">
+    <div class="container local-grid">
+      <div>
+        <p class="eyebrow">Lokale Auffindbarkeit</p>
+        <h2>SEO-Grundlagen für Lübeck und Umgebung.</h2>
+      </div>
+      <div class="prose">
+        <p>Lokale Suchmaschinenoptimierung beginnt mit konsistenten Unternehmensdaten, eindeutigen Seitentiteln, hilfreichen Inhalten und einer technisch crawlbaren Website. Eine Sitemap, strukturierte Daten und klare interne Links unterstützen Suchmaschinen bei der Einordnung.</p>
+        <p>Wichtig ist außerdem ein gepflegtes Google-Unternehmensprofil mit denselben echten Kontaktdaten. Gute Platzierungen lassen sich nicht garantieren. Eine saubere Website schafft jedoch die Grundlage, um für relevante Anfragen aus Lübeck, Travemünde und Schleswig-Holstein sichtbar zu werden.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section dark-section">
+    <div class="container">
+      <SectionHeading eyebrow="Passender Umfang" title="Onepage oder Website mit Unterseiten?" text="Der sinnvolle Aufbau hängt vom Angebot und den Zielen ab – nicht von einer starren Vorlage." />
+      <div class="local-options">
+        <article><h3>Onepage-Website</h3><p>Eine kompakte Onepage eignet sich, wenn ein klar umrissenes Angebot verständlich auf einer Seite erklärt werden kann. Sie bündelt Nutzen, Leistungen, Arbeitsweise und Kontakt in einem geradlinigen Ablauf.</p></article>
+        <article><h3>Mehrseitige Unternehmenswebsite</h3><p>Eigene Unterseiten sind sinnvoll, wenn mehrere Leistungen ausführlich erklärt, verschiedene Zielgruppen angesprochen oder echte Projekte mit mehr Kontext präsentiert werden sollen.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section light-section">
+    <div class="container">
+      <SectionHeading eyebrow="Für lokale Betriebe" title="Inhalte, die zu Ihrem Arbeitsalltag passen." />
+      <div class="audience-grid">{audiences.map(([title, text]) => <article><h3>{title}</h3><p>{text}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="content-section white-section">
+    <div class="container">
+      <SectionHeading eyebrow="Zusammenarbeit" title="Vom ersten Gespräch bis zur Veröffentlichung." text="Sie sprechen direkt mit Philipp Armbrüster und wissen in jeder Phase, welche Entscheidung als Nächstes ansteht." />
+      <div class="timeline">{processSteps.map((step) => <article class="timeline-item"><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div>
+      <div class="prose local-closing"><h2>Persönliche Betreuung in Lübeck</h2><p>Gespräche können je nach Projekt persönlich in Lübeck und Travemünde oder digital stattfinden. Entscheidend ist ein klarer Austausch: Sie bringen die Erfahrung aus Ihrem Unternehmen mit, ich übersetze Angebot und Ziele in einen professionellen digitalen Auftritt.</p><p><Button href="/kontakt/">Unverbindlich Kontakt aufnehmen</Button></p></div>
+    </div>
+  </section>
+
+  <CallToAction compact />
+</BaseLayout>

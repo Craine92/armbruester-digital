@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import { services } from '@/data/services';
+import Button from '@/components/Button.astro';
 
 const extended = [
   { id: 'webdesign', number: '01', title: 'Webdesign und Entwicklung', lead: 'Eine gute Website macht Ihr Angebot schnell verständlich, schafft Vertrauen und führt Besucher ohne Umwege zum nächsten Schritt.', items: ['Strategische Seitenstruktur', 'Individuelles visuelles Konzept', 'Responsive Entwicklung für alle Geräte', 'Barrierearme und verständliche Bedienung', 'Performanceoptimierte technische Basis'] },
@@ -18,7 +19,6 @@ const extended = [
   <section class="page-hero"><div class="container page-hero__inner"><div><p class="eyebrow">Leistungen</p><h1>Ein digitaler Auftritt, bei dem <em>alles zusammenspielt.</em></h1></div><p class="page-hero__intro"><strong>Von der Website bis zur Domain.</strong> Sie erhalten eine Lösung, die zu Ihrem Unternehmen, Ihrem Alltag und Ihren Zielen passt.</p></div></section>
   <section class="content-section"><div class="container"><SectionHeading title="Nicht mehr Technik als nötig. Aber alles, was wichtig ist." text="Die Leistungen werden so kombiniert, dass für Sie ein stimmiger, wartbarer und professioneller Auftritt entsteht." />
     <div class="services-grid">{extended.map((item) => <article class="service-card reveal" id={item.id}><span class="service-card__number">{item.number}</span><h3>{item.title}</h3><p>{item.lead}</p><ul>{item.items.map((benefit) => <li>{benefit}</li>)}</ul></article>)}</div>
-    <div class="prose service-scope"><h2>Individuell vereinbart</h2><p>Welche Bausteine für Ihr Unternehmen sinnvoll sind, klären wir im persönlichen Gespräch. Der konkrete Leistungsumfang, Zeitrahmen und Preis werden individuell vereinbart und vor Projektbeginn transparent festgehalten.</p><p>Suchmaschinenoptimierung schafft eine saubere Grundlage für Sichtbarkeit. Bestimmte Positionen in Suchergebnissen können und werden nicht garantiert.</p></div>
+    <div class="prose service-scope"><h2>Individuell vereinbart</h2><p>Welche Bausteine für Ihr Unternehmen sinnvoll sind, klären wir im persönlichen Gespräch. Der konkrete Leistungsumfang, Zeitrahmen und Preis werden individuell vereinbart und vor Projektbeginn transparent festgehalten.</p><p>Suchmaschinenoptimierung schafft eine saubere Grundlage für Sichtbarkeit. Bestimmte Positionen in Suchergebnissen können und werden nicht garantiert.</p><p><Button href="/webdesign-luebeck/" variant="secondary">Mehr zu Webdesign in Lübeck</Button></p></div>
   </div></section><CallToAction compact />
 </BaseLayout>
-

@@ -1,6 +1,6 @@
 import { siteConfig } from '@/config/site';
 
-export type ProjectCategory = 'Eventwebsite' | 'Unternehmenswebsite' | 'Handwerk' | 'Gesundheit' | 'Lokale Dienstleister';
+export type ProjectCategory = 'Eventwebsite' | 'Unternehmenswebsite' | 'Handwerk' | 'Lokale Dienstleister';
 
 export interface Project {
   slug: string;
@@ -44,12 +44,5 @@ export const projects: readonly Project[] = [
     services: ['Konzeption', 'Individuelles Webdesign', 'Responsive Umsetzung', 'Galerie', 'Countdown', 'Performance'],
     image: 'images/project-wedding.svg', imageAlt: 'Stilisierte Vorschau der Hochzeitswebsite Justine und Philipp',
     externalUrl: siteConfig.projects.weddingWebsite, detailUrl: '/projekte/hochzeitswebsite/'
-  },
-  {
-    slug: 'podologische-praxis', title: 'Podologische Praxis', eyebrow: 'Konzept · In Vorbereitung',
-    description: 'Vertrauensvoller und übersichtlicher Praxisauftritt mit Leistungen, Qualifikation, Öffnungszeiten, Anfahrt und klarer Kontaktmöglichkeit.',
-    categories: ['Unternehmenswebsite', 'Gesundheit', 'Lokale Dienstleister'],
-    services: ['Konzept', 'Informationsarchitektur', 'Kontaktführung'],
-    image: 'images/project-podology.svg', imageAlt: 'Deutlich gekennzeichneter Konzept-Platzhalter für eine podologische Praxis', status: 'In Vorbereitung'
   }
 ];

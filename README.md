@@ -8,7 +8,7 @@ Veröffentlichungsnahe Markenwebsite für **Armbrüster Digital** und den persö
 - TypeScript im strikten Modus
 - semantisches HTML und modernes CSS
 - kleine, progressive JavaScript-Module für Navigation, Einblendungen, Projektfilter und Formular-Fallback
-- lokale SVG-Platzhalter; keine extern geladenen Fonts, Tracker oder Medien
+- lokale Bilder und Grafiken; keine extern geladenen Fonts, Tracker oder Medien
 
 ## Installation und lokale Entwicklung
 
@@ -42,24 +42,24 @@ src/
   pages/        alle Seiten sowie Sitemap und robots.txt
   styles/       Designsystem und responsives Layout
 public/
-  images/       lokale Projekt-, Portrait- und Social-Platzhalter
+  images/       lokale Projekt- und Markenbilder
 ```
 
 ## Persönliche Daten anpassen
 
-Alle austauschbaren Angaben stehen in `src/config/site.ts`. Dort werden Marke, Inhaber, Domain, E-Mail, Telefon, Adresse, Social-Media-Links, Bilder und die URL der Hochzeitswebsite gepflegt. Leere Telefon- und Social-Werte werden im Footer nicht als Links ausgegeben.
+Alle zentralen Angaben stehen in `src/config/site.ts`. Dort werden Marke, Inhaber, Domain, E-Mail, Adresse, optionale Steuerkennungen, Social-Media-Links, Bilder und die URL der Hochzeitswebsite gepflegt. Leere Telefon-, Steuer- und Social-Werte werden öffentlich nicht ausgegeben.
 
 Die Produktionsadresse ist für `https://craine92.github.io/armbruester-digital/` vorkonfiguriert. Canonical-URLs, Sitemap, robots.txt und strukturierte Daten werden einschließlich des Repository-Unterpfads erzeugt.
 
 ## Projekte hinzufügen
 
-Neue Projekte werden als Objekt in `src/data/projects.ts` ergänzt. Benötigt werden Titel, Beschreibung, Kategorien, Leistungen, lokales Bild und Alt-Text. `detailUrl` und `externalUrl` sind optional. Konzepte müssen mit einem eindeutigen Status wie „In Vorbereitung“ gekennzeichnet bleiben.
+Neue, tatsächlich realisierte Projekte werden als Objekt in `src/data/projects.ts` ergänzt. Benötigt werden Titel, Beschreibung, Kategorien, Leistungen, lokales Bild und Alt-Text. `detailUrl` und `externalUrl` sind optional.
 
 Für eine eigene Fallstudie wird eine neue Datei unter `src/pages/projekte/` erstellt. Die Hochzeitswebsite dient als strukturelles Beispiel.
 
-## Bilder austauschen
+## Bilder pflegen
 
-Die derzeitigen SVG-Dateien in `public/images/` sind absichtlich deutlich gekennzeichnete Platzhalter. Das Portrait wird zentral über `siteConfig.images.portrait` referenziert. Projektbilder werden je Projekt in `src/data/projects.ts` festgelegt.
+Projektbilder werden je Projekt in `src/data/projects.ts` festgelegt.
 
 Für Fotos empfehlen sich AVIF oder WebP in mehreren sinnvollen Größen. Bildabmessungen müssen im Markup erhalten bleiben, um Layoutsprünge zu vermeiden. Aussagekräftige Alt-Texte sind bei jedem Austausch anzupassen. Das Social-Preview-Bild sollte final als PNG oder JPG in 1200 × 630 Pixel bereitgestellt werden.
 
@@ -87,9 +87,9 @@ Vor dem Launch sind zu prüfen:
 - XML-Sitemap in der Google Search Console
 - alle Seitentitel und Suchbegriffe passend zum finalen Angebot
 
-## Rechtliche Platzhalter
+## Rechtliche Inhalte
 
-Impressum und Datenschutz sind keine rechtsverbindlichen Vorlagen. Beide Seiten enthalten sichtbare Platzhalter und müssen vor Veröffentlichung individuell geprüft und vervollständigt werden. Hosting, Formularanbieter und alle später ergänzten Dienste müssen in den Datenschutzangaben berücksichtigt werden.
+Impressum und Datenschutz bilden den derzeitigen technischen Stand und die bereitgestellten Unternehmensdaten ab. Sie müssen vor dem geschäftlichen Start fachlich geprüft und bei jeder späteren Integration aktualisiert werden.
 
 ## Performance- und Qualitätsprüfung
 
@@ -115,7 +115,7 @@ Das Projekt ist für das Repository `craine92/armbruester-digital` und die Ziela
 2. `package-lock.json` mit committen; die offizielle Astro-Action erkennt darüber npm und führt eine reproduzierbare Installation aus.
 3. Im GitHub-Repository unter **Settings → Pages → Build and deployment → Source** die Option **GitHub Actions** auswählen.
 4. Den Standardbranch `main` verwenden. Bei einem anderen Branchnamen muss `.github/workflows/deploy.yml` entsprechend angepasst werden.
-5. Vor der öffentlichen Freigabe alle rechtlichen und geschäftlichen Platzhalter vervollständigen.
+5. Vor dem geschäftlichen Start die Rechtstexte fachlich prüfen lassen.
 
 Der Workflow `.github/workflows/deploy.yml` verwendet die offizielle Astro-Action. Bei jedem Push auf `main` wird die Website gebaut und anschließend über GitHub Pages veröffentlicht. Über **Actions → Deploy to GitHub Pages → Run workflow** kann die Veröffentlichung zusätzlich manuell gestartet werden.
 

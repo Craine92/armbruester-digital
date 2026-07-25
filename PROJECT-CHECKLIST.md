@@ -4,23 +4,18 @@
 
 - [ ] Finale Domain in `src/config/site.ts` eintragen
 - [ ] Finale Domain als `site` in `astro.config.mjs` eintragen
-- [ ] E-Mail-Adresse `info@example.com` ersetzen und Postfach testen
-- [ ] Telefonnummer ergänzen oder bewusst deaktiviert lassen
-- [ ] Vollständige Geschäftsanschrift ergänzen
-- [ ] Postleitzahl und Straße ergänzen
+- [x] E-Mail-Adresse zentral eingetragen
+- [x] Telefonnummer bewusst deaktiviert
+- [x] Vollständige Geschäftsanschrift eingetragen
 - [ ] Instagram-Link ergänzen oder deaktiviert lassen
 - [ ] LinkedIn-Link ergänzen oder deaktiviert lassen
 - [ ] Typografisches Logo final prüfen; bei Bedarf Logo-Dateien ergänzen
 
 ## Bilder und Projekte
 
-- [ ] Portrait-Platzhalter durch ein professionelles Foto von Philipp Armbrüster ersetzen
-- [ ] Alt-Text des Portraits an das finale Motiv anpassen
 - [ ] Projektbild der Hochzeitswebsite durch freigegebene echte Screenshots ersetzen
-- [ ] Konzept-Platzhalter für Garten- und Landschaftsbau prüfen oder später ersetzen
-- [ ] Konzept-Platzhalter für Podologie prüfen oder später ersetzen
 - [ ] Nutzungsrechte aller Bilder dokumentieren
-- [ ] Social-Preview-Platzhalter durch finales 1200 × 630-Pixel-Bild ersetzen
+- [ ] Eigenes Social-Preview-Bild im Format 1200 × 630 ergänzen
 - [ ] URL `https://hochzeit-philipp-justine.de` testen und bei Bedarf zentral ändern
 
 ## Kontaktformular
@@ -36,11 +31,8 @@
 
 - [ ] Impressum individuell rechtlich prüfen lassen
 - [ ] Datenschutztext individuell rechtlich prüfen lassen
-- [ ] Vollständige Anbieteranschrift ergänzen
-- [ ] Telefonnummer im Impressum ergänzen
-- [ ] Umsatzsteuer-ID, Steuernummer-Hinweis oder Kleinunternehmerangabe prüfen
-- [ ] Inhaltlich verantwortliche Person und Anschrift ergänzen
-- [ ] Haftungs- und Streitbeilegungshinweise prüfen
+- [x] Vollständige Anbieteranschrift ergänzt
+- [ ] Umsatzsteuer-ID oder Wirtschafts-ID ergänzen, falls vorhanden
 - [ ] Hostinganbieter, Server-Logs und Speicherdauer dokumentieren
 - [ ] Betroffenenrechte und zuständige Aufsicht ergänzen
 - [ ] Stand der Datenschutzerklärung eintragen

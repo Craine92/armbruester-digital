@@ -12,13 +12,13 @@ import { siteConfig } from '@/config/site';
 import { withBase } from '@/utils/paths';
 const heroProject = projects.find((project) => project.featuredInHero && project.screenshots);
 ---
-<BaseLayout title="Armbrüster Digital | Webdesign für kleine Unternehmen" description="Armbrüster Digital entwickelt moderne Websites, SEO-Grundlagen und professionelle digitale Präsenzen für kleine Unternehmen und Selbstständige – persönlich betreut aus Lübeck und deutschlandweit." path="/">
+<BaseLayout title="Webdesign Lübeck für kleine Unternehmen | Armbrüster Digital" description="Armbrüster Digital erstellt moderne, schnelle und persönliche Websites für kleine Unternehmen, Selbstständige, Handwerksbetriebe und lokale Dienstleister in Lübeck und Umgebung." path="/">
   <section class="hero">
     <div class="container hero__grid">
       <div class="hero__copy">
-        <p class="eyebrow">Webdesign aus Lübeck · Deutschlandweit</p>
-        <h1>Kleine Unternehmen verdienen <span>keinen kleinen Auftritt.</span></h1>
-        <p class="hero__lead">Armbrüster Digital entwickelt individuelle Websites, die professionell wirken, Vertrauen schaffen und Unternehmen sichtbar machen – persönlich betreut von der ersten Idee bis zur Veröffentlichung.</p>
+        <p class="eyebrow">Webdesign aus Lübeck · Persönlich betreut</p>
+        <h1>Professionelles Webdesign für <span>kleine Unternehmen in Lübeck.</span></h1>
+        <p class="hero__lead">Ich bin Philipp Armbrüster. Mit Armbrüster Digital entwickle ich individuelle Websites für Selbstständige, Handwerksbetriebe und lokale Dienstleister – schnell, verständlich und persönlich begleitet.</p>
         <div class="hero__actions"><Button href="/kontakt/">Projekt anfragen</Button><Button href="#projekte" variant="secondary">Projekte ansehen</Button></div>
         <p class="hero__service-line">{siteConfig.servicesLine}</p>
       </div>
@@ -26,7 +26,7 @@ const heroProject = projects.find((project) => project.featuredInHero && project
         <div class="hero-visual__grid" aria-hidden="true"></div>
         <div class="browser browser--main">
           <div class="browser__bar"><i></i><i></i><i></i><span></span></div>
-          <div class="mock-site">{heroProject?.screenshots ? <img src={withBase(heroProject.screenshots.desktop)} alt={heroProject.screenshots.desktopAlt} width="1440" height="1000" /> : <div class="mock-site__placeholder" aria-hidden="true"></div>}</div>
+          <div class="mock-site">{heroProject?.screenshots ? <img src={withBase(heroProject.screenshots.desktop)} alt={heroProject.screenshots.desktopAlt} width="1440" height="1000" fetchpriority="high" decoding="async" /> : <div class="mock-site__placeholder" aria-hidden="true"></div>}</div>
         </div>
         {heroProject?.screenshots && <div class="phone-preview"><img src={withBase(heroProject.screenshots.mobile)} alt={heroProject.screenshots.mobileAlt} width="390" height="844" /></div>}
         {heroProject && <div class="hero-project-meta"><span data-short="Live-Projekt">{heroProject.heroLabel ?? 'Live-Projekt'}</span><Button href={heroProject.externalUrl!} variant="text" external>Projekt ansehen</Button></div>}
@@ -40,7 +40,7 @@ const heroProject = projects.find((project) => project.featuredInHero && project
     <div class="container">
       <SectionHeading eyebrow="Leistungen" title="Mehr als nur eine schöne Website." text="Ein professioneller Online-Auftritt besteht nicht nur aus Design. Technik, Auffindbarkeit, Domain, E-Mail und eine klare Nutzerführung müssen zusammenspielen." />
       <div class="services-grid">{services.map((service) => <article class="service-card reveal"><span class="service-card__number">{service.number}</span><h3>{service.title}</h3><p>{service.description}</p><ul>{service.benefits.slice(0, 5).map((item) => <li>{item}</li>)}</ul></article>)}</div>
-      <p class="section-action"><Button href="/leistungen/" variant="text">Alle Leistungen im Detail</Button></p>
+      <div class="section-actions"><Button href="/leistungen/" variant="text">Alle Leistungen im Detail</Button><Button href="/webdesign-luebeck/" variant="secondary">Webdesign in Lübeck</Button></div>
     </div>
   </section>
 
@@ -68,9 +68,19 @@ const heroProject = projects.find((project) => project.featuredInHero && project
   </section>
 
   <section class="content-section light-section" id="ueber-mich">
-    <div class="container about-teaser">
-      <div class="portrait reveal"><img src={withBase(siteConfig.images.portrait)} alt="Neutraler Platzhalter für ein zukünftiges Porträt von Philipp Armbrüster" width="800" height="1000" loading="lazy" /></div>
-      <div class="about-copy reveal"><p class="eyebrow">Über Armbrüster Digital</p><h2>Persönlich betreut. Professionell umgesetzt.</h2><p>Ich bin Philipp Armbrüster und entwickle mit Armbrüster Digital moderne Online-Auftritte für kleine Unternehmen und Selbstständige. Dabei verbinde ich technisches Verständnis mit einem klaren Blick für Gestaltung, Benutzerfreundlichkeit und verständliche digitale Lösungen.</p><p>Als persönlicher Ansprechpartner begleite ich Ihr Projekt von der ersten Idee über die technische Umsetzung bis zur Veröffentlichung – ohne anonyme Agenturprozesse und unnötige Fachsprache.</p><ul class="about-points"><li>Persönlicher Ansprechpartner</li><li>Individuelle Lösungen</li><li>Verständliche Kommunikation</li><li>Strukturierte Umsetzung</li><li>Deutschlandweite Zusammenarbeit</li><li>Standort Lübeck</li></ul><Button href="/ueber-mich/" variant="secondary">Mehr über mich</Button></div>
+    <div class="container about-text">
+      <div class="about-copy reveal"><p class="eyebrow">Über Armbrüster Digital</p><h2>Persönlich betreut. Professionell umgesetzt.</h2><p>Ich bin Philipp Armbrüster und entwickle mit Armbrüster Digital moderne Online-Auftritte für kleine Unternehmen und Selbstständige. Dabei verbinde ich technisches Verständnis mit einem klaren Blick für Gestaltung, Benutzerfreundlichkeit und verständliche digitale Lösungen.</p><p>Als persönlicher Ansprechpartner begleite ich Ihr Projekt von der ersten Idee über die technische Umsetzung bis zur Veröffentlichung – ohne anonyme Agenturprozesse und unnötige Fachsprache.</p><ul class="about-points"><li>Persönlicher Ansprechpartner</li><li>Individuelle Lösungen</li><li>Verständliche Kommunikation</li><li>Strukturierte Umsetzung</li><li>Lübeck und Umgebung</li><li>Digitale Zusammenarbeit möglich</li></ul><Button href="/ueber-mich/" variant="secondary">Mehr über mich</Button></div>
+    </div>
+  </section>
+  <section class="content-section white-section" aria-labelledby="faq-title">
+    <div class="container faq-layout">
+      <SectionHeading eyebrow="Häufige Fragen" title="Was vor dem Website-Start wichtig ist." />
+      <div class="faq-list" id="faq-title">
+        <details><summary>Für wen entwickelt Armbrüster Digital Websites?</summary><p>Das Angebot richtet sich vor allem an kleine Unternehmen, Selbstständige, Handwerksbetriebe und lokale Dienstleister, die professionell und verständlich online auftreten möchten.</p></details>
+        <details><summary>Ist eine Onepage-Website ausreichend?</summary><p>Eine Onepage kann für ein klar umrissenes Angebot ein guter Start sein. Bei mehreren Leistungen, Zielgruppen oder wichtigen Suchthemen ist eine Website mit einzelnen Unterseiten oft sinnvoller.</p></details>
+        <details><summary>Wird die Website auch auf Smartphones funktionieren?</summary><p>Ja. Struktur, Navigation, Inhalte und Kontaktwege werden von Anfang an für kleine und große Bildschirme entwickelt und geprüft.</p></details>
+        <details><summary>Kann eine neue Website sofort gute Google-Platzierungen garantieren?</summary><p>Nein. Eine technisch saubere Website und hilfreiche lokale Inhalte schaffen eine gute Grundlage. Platzierungen hängen jedoch auch von Wettbewerb, Bekanntheit und laufender Pflege ab.</p></details>
+      </div>
     </div>
   </section>
   <PricingSection compact />

@@ -1,17 +1,23 @@
 export const siteConfig = {
   brand: 'Armbrüster Digital',
+  alternateName: 'Armbrüster Digital Webdesign',
   owner: 'Philipp Armbrüster',
-  claim: 'Moderne Webseiten für kleine Unternehmen.',
+  businessName: 'Armbrüster Digital',
+  claim: 'Professionelles Webdesign für kleine Unternehmen in Lübeck.',
   servicesLine: 'Webdesign · Suchmaschinenoptimierung · Digitale Präsenz',
   location: 'Lübeck',
-  region: 'Deutschlandweit',
+  region: 'Lübeck, Travemünde und Umgebung',
   siteUrl: 'https://craine92.github.io/armbruester-digital/',
   domain: 'craine92.github.io/armbruester-digital',
-  email: 'info@example.com',
+  futureSiteUrl: 'https://armbruester-digital.de/',
+  email: 'armphi@icloud.com',
   phone: '' as string,
+  // TODO: Umsatzsteuer-Identifikationsnummer oder Wirtschafts-Identifikationsnummer eintragen, falls vorhanden.
+  vatId: '' as string,
+  businessId: '' as string,
   address: {
-    street: '[PLATZHALTER-STRASSE]',
-    postalCode: '[PLATZHALTER-PLZ]',
+    street: 'Vorderreihe 20',
+    postalCode: '23570',
     city: 'Lübeck',
     country: 'Deutschland'
   },
@@ -21,7 +27,7 @@ export const siteConfig = {
   },
   images: {
     portrait: 'images/portrait-placeholder.svg',
-    socialPreview: 'images/social-preview.svg'
+    socialPreview: 'projects/dirk-kuhlmann-desktop.png'
   },
   projects: {
     weddingWebsite: 'https://hochzeit-philipp-justine.de'
