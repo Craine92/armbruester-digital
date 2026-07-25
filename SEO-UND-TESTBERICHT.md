@@ -2,6 +2,16 @@
 
 Stand: 25. Juli 2026
 
+## Nachtrag: deutschlandweite Positionierung und Kuhlmann-Projekt
+
+- Die allgemeine Startseite ist nun deutschlandweit auf Websites, SEO, Social Media und digitale Betreuung ausgerichtet; `/webdesign-luebeck/` bleibt die eigenständige lokale Landingpage.
+- Strategie und Konzeption, Website-Erstellung, SEO und Google-Auffindbarkeit, Social Media sowie optionale Pflege und Weiterentwicklung werden als Rundum-sorglos-Angebot dargestellt.
+- Ein neuer Zielgruppenbereich spricht Unternehmen, Selbstständige, Praxen, Gesundheitsdienstleister, Gastronomie, Hotellerie, Handwerk, Gartenbau, lokale Dienstleister und Gründungen an.
+- Das Impressum gibt `vatId` und `businessId` getrennt und ausschließlich bei vorhandenem Wert aus. Der doppelte Abschnitt „Verantwortlich für den Inhalt“ wurde entfernt.
+- Die reale Projektwebsite verweist jetzt auf `https://kuhlmann-garten.de`. Neue lokale WebP-Screenshots bilden die aktuelle Website mit 1440 × 900 beziehungsweise 390 × 844 Pixeln ab.
+- Das allgemeine Social Preview ist ein eigenes Markenmotiv im Format 1200 × 630 und verwendet kein Kundenlogo.
+- Die erneute mobile Lighthouse-Messung erreichte Performance 98, Accessibility 100, Best Practices 100 und SEO 100.
+
 ## Ursprünglicher Zustand
 
 - Die funktionierende Veröffentlichung war auf `https://craine92.github.io/armbruester-digital/` mit dem Base-Pfad `/armbruester-digital` ausgerichtet.
@@ -106,13 +116,22 @@ Lighthouse erzeugte den vollständigen Bericht. Unter Windows meldete die CLI er
 - `PROJECT-CHECKLIST.md`
 - `README.md`
 - `SEO-UND-TESTBERICHT.md`
+- `UNTERNEHMENSDATEN-TODO.md`
 - `package.json`
 - `package-lock.json`
+- `public/images/social-preview.svg`
+- `public/images/social-preview.png`
+- `public/projects/dirk-kuhlmann-desktop.webp`
+- `public/projects/dirk-kuhlmann-mobile.webp`
+- `src/components/CallToAction.astro`
 - `src/components/Footer.astro`
+- `src/components/Header.astro`
 - `src/components/LegalPageLayout.astro`
+- `src/components/ProjectFeature.astro`
 - `src/components/SeoHead.astro`
 - `src/config/site.ts`
 - `src/data/projects.ts`
+- `src/data/services.ts`
 - `src/pages/datenschutz.astro`
 - `src/pages/impressum.astro`
 - `src/pages/index.astro`
@@ -130,7 +149,7 @@ Lighthouse erzeugte den vollständigen Bericht. Unter Windows meldete die CLI er
 - Google Search Console und Google-Unternehmensprofil mit echten Inhabernachweisen einrichten.
 - Rechtstexte vor dem geschäftlichen Start fachlich prüfen lassen. Diese technische Überarbeitung ersetzt keine Rechtsberatung.
 - Umsatzsteuer-Identifikationsnummer oder Wirtschafts-Identifikationsnummer nur ergänzen, falls tatsächlich vorhanden. Die gewöhnliche persönliche Steuernummer nicht veröffentlichen.
-- Optional ein freigegebenes professionelles Porträt und ein eigenes Social-Preview-Bild im Format 1200 × 630 ergänzen.
+- Optional ein freigegebenes professionelles Porträt ergänzen.
 - Bild- und Veröffentlichungsrechte der Projektbeispiele dokumentieren.
 - Echte weitere Referenzen und freiwillige Kundenbewertungen erst nach tatsächlicher Leistung und Freigabe ergänzen.
 - Wenn später ein externer Formulardienst, Tracking, Karten, externe Fonts oder Social-Embeds hinzukommen, Datenschutztext und Einwilligungsbedarf erneut prüfen.

@@ -15,7 +15,7 @@
 
 - [ ] Projektbild der Hochzeitswebsite durch freigegebene echte Screenshots ersetzen
 - [ ] Nutzungsrechte aller Bilder dokumentieren
-- [ ] Eigenes Social-Preview-Bild im Format 1200 × 630 ergänzen
+- [x] Eigenes Marken-Social-Preview-Bild im Format 1200 × 630 ergänzt
 - [ ] URL `https://hochzeit-philipp-justine.de` testen und bei Bedarf zentral ändern
 
 ## Kontaktformular
@@ -55,7 +55,7 @@
 - [ ] `npm run check` ohne Fehler ausführen
 - [ ] `npm run build` ohne Fehler ausführen
 - [ ] Keine Browser-Konsolenfehler
-- [ ] Lighthouse Performance, Accessibility, Best Practices und SEO prüfen
+- [x] Lighthouse Performance, Accessibility, Best Practices und SEO geprüft
 - [ ] Tastaturbedienung inklusive mobilem Menü testen
 - [ ] Darstellung ab 320 Pixel Breite testen
 - [ ] Lange deutsche Wörter und Umlaute kontrollieren

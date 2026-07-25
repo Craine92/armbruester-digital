@@ -1,6 +1,6 @@
 # Armbrüster Digital
 
-Veröffentlichungsnahe Markenwebsite für **Armbrüster Digital** und den persönlichen Ansprechpartner Philipp Armbrüster. Die Website richtet sich an kleine Unternehmen, Selbstständige, Handwerksbetriebe, Praxen und lokale Dienstleister. Sie ist statisch generierbar, responsiv, datenschutzfreundlich und ohne große clientseitige Abhängigkeiten umgesetzt.
+Veröffentlichungsnahe Markenwebsite für **Armbrüster Digital** und den persönlichen Ansprechpartner Philipp Armbrüster. Das deutschlandweite Angebot umfasst Strategie, Website-Erstellung, SEO, Social Media und digitale Betreuung für Unternehmen, Selbstständige, Handwerk, Praxen, Gastronomie, lokale Dienstleister und Gründungen. Die Website ist statisch generierbar, responsiv, datenschutzfreundlich und ohne große clientseitige Abhängigkeiten umgesetzt.
 
 ## Technologien
 
@@ -61,7 +61,7 @@ Für eine eigene Fallstudie wird eine neue Datei unter `src/pages/projekte/` ers
 
 Projektbilder werden je Projekt in `src/data/projects.ts` festgelegt.
 
-Für Fotos empfehlen sich AVIF oder WebP in mehreren sinnvollen Größen. Bildabmessungen müssen im Markup erhalten bleiben, um Layoutsprünge zu vermeiden. Aussagekräftige Alt-Texte sind bei jedem Austausch anzupassen. Das Social-Preview-Bild sollte final als PNG oder JPG in 1200 × 630 Pixel bereitgestellt werden.
+Für Fotos empfehlen sich AVIF oder WebP in mehreren sinnvollen Größen. Bildabmessungen müssen im Markup erhalten bleiben, um Layoutsprünge zu vermeiden. Aussagekräftige Alt-Texte sind bei jedem Austausch anzupassen. Das Marken-Social-Preview-Bild liegt als PNG in 1200 × 630 Pixel vor.
 
 ## Kontaktformular konfigurieren
 

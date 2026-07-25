@@ -24,12 +24,9 @@ const organization = {
 const localBusiness = {
   '@context': 'https://schema.org', '@type': 'ProfessionalService',
   name: siteConfig.brand, alternateName: siteConfig.alternateName, url: homepageUrl, image: imageUrl,
-  description: siteConfig.claim, email: siteConfig.email,
-  areaServed: [
-    { '@type': 'City', name: 'Lübeck' },
-    { '@type': 'Place', name: 'Travemünde' },
-    { '@type': 'AdministrativeArea', name: 'Schleswig-Holstein' }
-  ],
+  description: 'Webdesign, Website-Erstellung, Suchmaschinenoptimierung, Social Media und digitale Betreuung für Unternehmen in Deutschland.',
+  email: siteConfig.email,
+  areaServed: { '@type': 'Country', name: siteConfig.serviceArea },
   founder: { '@type': 'Person', name: siteConfig.owner },
   address: {
     '@type': 'PostalAddress',

@@ -8,23 +8,28 @@ export interface Service {
 
 export const services: readonly Service[] = [
   {
-    number: '01', title: 'Webdesign & Entwicklung', shortTitle: 'Webdesign',
+    number: '01', title: 'Strategie & Konzeption', shortTitle: 'Konzeption',
+    description: 'Eine klare Grundlage für Ihren digitalen Auftritt – ausgerichtet auf Unternehmen, Zielgruppen, Inhalte und konkrete Geschäftsziele.',
+    benefits: ['Unternehmensanalyse', 'Zielgruppen', 'Inhaltsplanung', 'Seitenstruktur', 'Persönliche Beratung']
+  },
+  {
+    number: '02', title: 'Webdesign & Website-Erstellung', shortTitle: 'Webdesign',
     description: 'Individuelle, schnelle und responsive Websites, die zu Ihrem Unternehmen passen und auf jedem Gerät professionell wirken.',
-    benefits: ['Individuelle Gestaltung', 'Responsive Entwicklung', 'Benutzerfreundliche Navigation', 'Schnelle Ladezeiten', 'Barrierearme Umsetzung', 'Technische Qualität']
+    benefits: ['Individuelles Design', 'Unternehmenswebsites', 'Onepage-Websites', 'Responsive Umsetzung', 'Klare Kontaktführung', 'Technische Qualität']
   },
   {
-    number: '02', title: 'SEO & Sichtbarkeit', shortTitle: 'SEO-Grundlagen',
+    number: '03', title: 'SEO & Google-Auffindbarkeit', shortTitle: 'SEO-Grundlagen',
     description: 'Eine technisch und inhaltlich saubere Grundlage, damit Suchmaschinen Ihre Website verstehen und potenzielle Kunden Ihr Unternehmen finden können.',
-    benefits: ['Technische SEO-Grundlagen', 'Seitentitel und Beschreibungen', 'Strukturierte Inhalte', 'Lokale Suchbegriffe', 'Strukturierte Daten', 'Search Console', 'Performanceoptimierung']
+    benefits: ['Technische SEO-Grundlagen', 'Seitentitel und Beschreibungen', 'Strukturierte Inhalte', 'Sitemap', 'Search-Console-Vorbereitung', 'Ladezeitoptimierung']
   },
   {
-    number: '03', title: 'Digitale Präsenz', shortTitle: 'Domain & Präsenz',
-    description: 'Domain, professionelle E-Mail-Adressen und die wichtigsten digitalen Grundlagen aus einer Hand.',
-    benefits: ['Domain-Einrichtung', 'DNS-Konfiguration', 'Professionelle E-Mail-Adressen', 'Google-Unternehmensprofil', 'Social-Media-Verknüpfung', 'Kontaktdaten und Anfahrt', 'Beratung zur Außendarstellung']
+    number: '04', title: 'Social Media & digitale Präsenz', shortTitle: 'Social Media',
+    description: 'Website und Social-Media-Auftritt werden als stimmige digitale Präsenz gedacht und verständlich aufeinander abgestimmt.',
+    benefits: ['Einheitlicher Auftritt', 'Unterstützung bei Profilen', 'Inhaltsorientierung', 'Visuelle Abstimmung', 'Verständliche Beratung']
   },
   {
-    number: '04', title: 'Betreuung & Weiterentwicklung', shortTitle: 'Betreuung',
-    description: 'Auch nach der Veröffentlichung bleibt die Website anpassbar und kann gemeinsam mit dem Unternehmen wachsen.',
-    benefits: ['Kleine Inhaltsänderungen', 'Neue Bilder und Texte', 'Technische Anpassungen', 'Sinnvolle Erweiterungen', 'Betreuung nach Vereinbarung']
+    number: '05', title: 'Pflege & Weiterentwicklung', shortTitle: 'Weiterentwicklung',
+    description: 'Auf Wunsch bleibt die Website nach der Veröffentlichung anpassbar und kann gemeinsam mit dem Unternehmen wachsen.',
+    benefits: ['Aktualisierung von Inhalten', 'Neue Bilder und Texte', 'Technische Weiterentwicklung', 'Sinnvolle Erweiterungen', 'Pflege nach Vereinbarung']
   }
 ];

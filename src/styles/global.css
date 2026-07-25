@@ -123,3 +123,7 @@ body.nav-open{position:fixed;width:100%}
 
 /* WCAG AA contrast corrections for light sections and footer microcopy. */
 .light-section .button--primary,.white-section .button--primary,.lavender-section .button--primary{background:#6849b5;color:#fff}.light-section .button--primary:hover,.white-section .button--primary:hover,.lavender-section .button--primary:hover{background:#56399d}.footer-label{color:#92929d}.footer-bottom p,.footer-bottom a{color:#92929d}
+
+/* The fifth service closes the desktop grid as one intentional full-width card. */
+.services-grid .service-card:last-child:nth-child(odd){grid-column:1/-1;min-height:300px}
+@media(max-width:700px){.services-grid .service-card:last-child:nth-child(odd){grid-column:auto;min-height:auto}}

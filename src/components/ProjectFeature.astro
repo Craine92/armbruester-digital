@@ -7,7 +7,7 @@ const { project, index } = Astro.props;
 ---
 <article class="project-feature reveal" data-categories={project.categories.join('|')}>
   <div class="project-visual">
-    <img src={withBase(project.image)} alt={project.imageAlt} width="1200" height="760" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+    <img src={withBase(project.image)} alt={project.imageAlt} width={project.imageWidth ?? 1200} height={project.imageHeight ?? 760} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
   </div>
   <div class="project-copy">
     <p class="eyebrow">{project.eyebrow}</p>

@@ -11,14 +11,22 @@ import { processSteps } from '@/data/process';
 import { siteConfig } from '@/config/site';
 import { withBase } from '@/utils/paths';
 const heroProject = projects.find((project) => project.featuredInHero && project.screenshots);
+const targetGroups = [
+  ['Unternehmen & Selbstständige', 'Professionelle Unternehmenswebsites für etablierte Betriebe, Mittelstand, Selbstständige und neu gegründete Unternehmen.'],
+  ['Praxen & Gesundheit', 'Klare digitale Auftritte, die Leistungen verständlich erklären und Patienten sicher zu den wichtigsten Informationen führen.'],
+  ['Gastronomie & Hotellerie', 'Websites und digitale Präsenz für Angebote, Atmosphäre, Reservierungswege und aktuelle Informationen.'],
+  ['Handwerk & Gartenbau', 'Leistungsstarke Websites mit Projektbeispielen, Einsatzgebiet und direkter Kontaktführung für Interessenten.'],
+  ['Lokale Dienstleister', 'Vertrauenswürdige Online-Auftritte, die Angebot, Standort und persönliche Arbeitsweise sichtbar machen.'],
+  ['Gründer & Neuausrichtung', 'Ein strukturierter Start für neue Unternehmen oder die Modernisierung eines veralteten Internetauftritts.']
+] as const;
 ---
-<BaseLayout title="Webdesign Lübeck für kleine Unternehmen | Armbrüster Digital" description="Armbrüster Digital erstellt moderne, schnelle und persönliche Websites für kleine Unternehmen, Selbstständige, Handwerksbetriebe und lokale Dienstleister in Lübeck und Umgebung." path="/">
+<BaseLayout title="Webdesign, Websites & Social Media deutschlandweit | Armbrüster Digital" description="Armbrüster Digital entwickelt moderne Websites und digitale Unternehmensauftritte inklusive Webdesign, SEO und Social Media für Unternehmen, Praxen, Gastronomie, Handwerk und Selbstständige in ganz Deutschland." path="/">
   <section class="hero">
     <div class="container hero__grid">
       <div class="hero__copy">
-        <p class="eyebrow">Webdesign aus Lübeck · Persönlich betreut</p>
-        <h1>Professionelles Webdesign für <span>kleine Unternehmen in Lübeck.</span></h1>
-        <p class="hero__lead">Ich bin Philipp Armbrüster. Mit Armbrüster Digital entwickle ich individuelle Websites für Selbstständige, Handwerksbetriebe und lokale Dienstleister – schnell, verständlich und persönlich begleitet.</p>
+        <p class="eyebrow">Webdesign · SEO · Social Media</p>
+        <h1>Ihr digitaler Auftritt – <span>professionell aus einer Hand.</span></h1>
+        <p class="hero__lead">Armbrüster Digital entwickelt moderne Websites und ganzheitliche digitale Auftritte für Unternehmen, Praxen, Gastronomie, Handwerk und Selbstständige – persönlich betreut aus Lübeck und deutschlandweit umgesetzt.</p>
         <div class="hero__actions"><Button href="/kontakt/">Projekt anfragen</Button><Button href="#projekte" variant="secondary">Projekte ansehen</Button></div>
         <p class="hero__service-line">{siteConfig.servicesLine}</p>
       </div>
@@ -26,7 +34,7 @@ const heroProject = projects.find((project) => project.featuredInHero && project
         <div class="hero-visual__grid" aria-hidden="true"></div>
         <div class="browser browser--main">
           <div class="browser__bar"><i></i><i></i><i></i><span></span></div>
-          <div class="mock-site">{heroProject?.screenshots ? <img src={withBase(heroProject.screenshots.desktop)} alt={heroProject.screenshots.desktopAlt} width="1440" height="1000" fetchpriority="high" decoding="async" /> : <div class="mock-site__placeholder" aria-hidden="true"></div>}</div>
+          <div class="mock-site">{heroProject?.screenshots ? <img src={withBase(heroProject.screenshots.desktop)} alt={heroProject.screenshots.desktopAlt} width="1440" height="900" fetchpriority="high" decoding="async" /> : <div class="mock-site__placeholder" aria-hidden="true"></div>}</div>
         </div>
         {heroProject?.screenshots && <div class="phone-preview"><img src={withBase(heroProject.screenshots.mobile)} alt={heroProject.screenshots.mobileAlt} width="390" height="844" /></div>}
         {heroProject && <div class="hero-project-meta"><span data-short="Live-Projekt">{heroProject.heroLabel ?? 'Live-Projekt'}</span><Button href={heroProject.externalUrl!} variant="text" external>Projekt ansehen</Button></div>}
@@ -34,11 +42,11 @@ const heroProject = projects.find((project) => project.featuredInHero && project
     </div>
   </section>
 
-  <section class="trust-strip" aria-labelledby="trust-title"><div class="container trust-strip__inner"><h2 id="trust-title">Von der ersten Idee bis zum professionellen Online-Auftritt.</h2><ul class="trust-list"><li><span>01</span>Persönlicher Ansprechpartner</li><li><span>02</span>Individuelles Design</li><li><span>03</span>Technisch saubere Umsetzung</li><li><span>04</span>Verständliche Betreuung</li></ul></div></section>
+  <section class="trust-strip" aria-labelledby="trust-title"><div class="container trust-strip__inner"><h2 id="trust-title">Das Rundum-sorglos-Paket für Ihren digitalen Unternehmensauftritt.</h2><ul class="trust-list"><li><span>01</span>Strategie und Konzeption</li><li><span>02</span>Individuelles Webdesign</li><li><span>03</span>SEO und Sichtbarkeit</li><li><span>04</span>Persönliche Betreuung</li></ul></div></section>
 
   <section class="content-section light-section" id="leistungen">
     <div class="container">
-      <SectionHeading eyebrow="Leistungen" title="Mehr als nur eine schöne Website." text="Ein professioneller Online-Auftritt besteht nicht nur aus Design. Technik, Auffindbarkeit, Domain, E-Mail und eine klare Nutzerführung müssen zusammenspielen." />
+      <SectionHeading eyebrow="Alles aus einer Hand" title="Vom Konzept bis zum vollständigen digitalen Auftritt." text="Strategie, Website-Erstellung, Suchmaschinenoptimierung, Social Media und spätere Weiterentwicklung werden passend zu Ihrem Unternehmen zusammengedacht." />
       <div class="services-grid">{services.map((service) => <article class="service-card reveal"><span class="service-card__number">{service.number}</span><h3>{service.title}</h3><p>{service.description}</p><ul>{service.benefits.slice(0, 5).map((item) => <li>{item}</li>)}</ul></article>)}</div>
       <div class="section-actions"><Button href="/leistungen/" variant="text">Alle Leistungen im Detail</Button><Button href="/webdesign-luebeck/" variant="secondary">Webdesign in Lübeck</Button></div>
     </div>
@@ -46,12 +54,19 @@ const heroProject = projects.find((project) => project.featuredInHero && project
 
   <section class="positioning lavender-section">
     <div class="container">
-      <div class="positioning__top reveal"><h2>Keine anonyme Agentur.<br />Kein unpersönlicher <em>Baukasten.</em></h2><p>Bei Armbrüster Digital sprechen Sie direkt mit der Person, die Ihre Website plant und umsetzt. Entscheidungen werden verständlich erklärt, Lösungen individuell entwickelt und unnötige Komplexität vermieden.</p></div>
+      <div class="positioning__top reveal"><h2>Ein Ansprechpartner.<br />Ein stimmiger <em>digitaler Auftritt.</em></h2><p>Bei Armbrüster Digital sprechen Sie direkt mit der Person, die Konzept, Website und digitale Präsenz plant. Entscheidungen werden verständlich erklärt, Lösungen individuell entwickelt und deutschlandweit persönlich begleitet.</p></div>
       <ul class="contrast-list">
         <li class="contrast-item reveal"><span class="sr-only">Persönlich statt anonym</span><div class="contrast-item__visual" aria-hidden="true"><span>01</span><strong>Persönlich</strong><span>anonym</span></div></li>
         <li class="contrast-item reveal"><span class="sr-only">Individuell statt austauschbar</span><div class="contrast-item__visual" aria-hidden="true"><span>02</span><strong>Individuell</strong><span>austauschbar</span></div></li>
         <li class="contrast-item reveal"><span class="sr-only">Verständlich statt unnötig kompliziert</span><div class="contrast-item__visual" aria-hidden="true"><span>03</span><strong>Verständlich</strong><span>unnötig kompliziert</span></div></li>
       </ul>
+    </div>
+  </section>
+
+  <section class="content-section light-section" id="zielgruppen">
+    <div class="container">
+      <SectionHeading eyebrow="Zielgruppen" title="Digitale Lösungen für Unternehmen verschiedenster Branchen." text="Ob Neugründung, gewachsenes Unternehmen oder veralteter Internetauftritt: Entscheidend ist eine Lösung, die zu Angebot, Zielgruppe und Arbeitsalltag passt." />
+      <div class="audience-grid">{targetGroups.map(([title, text]) => <article class="reveal"><h3>{title}</h3><p>{text}</p></article>)}</div>
     </div>
   </section>
 
@@ -69,17 +84,17 @@ const heroProject = projects.find((project) => project.featuredInHero && project
 
   <section class="content-section light-section" id="ueber-mich">
     <div class="container about-text">
-      <div class="about-copy reveal"><p class="eyebrow">Über Armbrüster Digital</p><h2>Persönlich betreut. Professionell umgesetzt.</h2><p>Ich bin Philipp Armbrüster und entwickle mit Armbrüster Digital moderne Online-Auftritte für kleine Unternehmen und Selbstständige. Dabei verbinde ich technisches Verständnis mit einem klaren Blick für Gestaltung, Benutzerfreundlichkeit und verständliche digitale Lösungen.</p><p>Als persönlicher Ansprechpartner begleite ich Ihr Projekt von der ersten Idee über die technische Umsetzung bis zur Veröffentlichung – ohne anonyme Agenturprozesse und unnötige Fachsprache.</p><ul class="about-points"><li>Persönlicher Ansprechpartner</li><li>Individuelle Lösungen</li><li>Verständliche Kommunikation</li><li>Strukturierte Umsetzung</li><li>Lübeck und Umgebung</li><li>Digitale Zusammenarbeit möglich</li></ul><Button href="/ueber-mich/" variant="secondary">Mehr über mich</Button></div>
+      <div class="about-copy reveal"><p class="eyebrow">Über Armbrüster Digital</p><h2>Persönlich betreut. Deutschlandweit umgesetzt.</h2><p>Ich bin Philipp Armbrüster und entwickle mit Armbrüster Digital moderne Unternehmenswebsites und ganzheitliche digitale Auftritte. Dabei verbinde ich technisches Verständnis mit einem klaren Blick für Strategie, Gestaltung, Benutzerfreundlichkeit und Sichtbarkeit.</p><p>Als persönlicher Ansprechpartner begleite ich Ihr Projekt von der Konzeption über Website und SEO bis zur passenden digitalen Präsenz – ohne anonyme Agenturprozesse und unnötige Fachsprache.</p><ul class="about-points"><li>Persönlicher Ansprechpartner</li><li>Individuelle Konzeption</li><li>Webdesign und SEO</li><li>Social-Media-Orientierung</li><li>Standort Lübeck</li><li>Deutschlandweite Zusammenarbeit</li></ul><Button href="/ueber-mich/" variant="secondary">Mehr über mich</Button></div>
     </div>
   </section>
   <section class="content-section white-section" aria-labelledby="faq-title">
     <div class="container faq-layout">
       <SectionHeading eyebrow="Häufige Fragen" title="Was vor dem Website-Start wichtig ist." />
       <div class="faq-list" id="faq-title">
-        <details><summary>Für wen entwickelt Armbrüster Digital Websites?</summary><p>Das Angebot richtet sich vor allem an kleine Unternehmen, Selbstständige, Handwerksbetriebe und lokale Dienstleister, die professionell und verständlich online auftreten möchten.</p></details>
+        <details><summary>Für wen entwickelt Armbrüster Digital digitale Auftritte?</summary><p>Das Angebot richtet sich an kleine und mittelständische Unternehmen, Selbstständige, Praxen, Gastronomie, Handwerksbetriebe, lokale Dienstleister und Gründer in ganz Deutschland.</p></details>
         <details><summary>Ist eine Onepage-Website ausreichend?</summary><p>Eine Onepage kann für ein klar umrissenes Angebot ein guter Start sein. Bei mehreren Leistungen, Zielgruppen oder wichtigen Suchthemen ist eine Website mit einzelnen Unterseiten oft sinnvoller.</p></details>
         <details><summary>Wird die Website auch auf Smartphones funktionieren?</summary><p>Ja. Struktur, Navigation, Inhalte und Kontaktwege werden von Anfang an für kleine und große Bildschirme entwickelt und geprüft.</p></details>
-        <details><summary>Kann eine neue Website sofort gute Google-Platzierungen garantieren?</summary><p>Nein. Eine technisch saubere Website und hilfreiche lokale Inhalte schaffen eine gute Grundlage. Platzierungen hängen jedoch auch von Wettbewerb, Bekanntheit und laufender Pflege ab.</p></details>
+        <details><summary>Kann eine neue Website sofort gute Google-Platzierungen garantieren?</summary><p>Nein. Eine technisch saubere Website und hilfreiche Inhalte schaffen eine gute Grundlage. Platzierungen hängen jedoch auch von Wettbewerb, Bekanntheit und laufender Pflege ab.</p></details>
       </div>
     </div>
   </section>

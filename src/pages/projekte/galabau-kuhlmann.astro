@@ -5,16 +5,16 @@ import SectionHeading from '@/components/SectionHeading.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import { withBase } from '@/utils/paths';
 
-const liveUrl = 'https://craine92.github.io/Galabau-Kuhlmann/';
+const liveUrl = 'https://kuhlmann-garten.de';
 const details = [
-  ['01', 'Ausgangssituation', 'Ein regionaler Garten- und Landschaftsbaubetrieb benötigt einen modernen, übersichtlichen und auf mobilen Geräten gut nutzbaren Online-Auftritt.'],
-  ['02', 'Ziel', 'Leistungen und Projekte verständlich darstellen, Vertrauen schaffen und Interessenten eine direkte Kontaktaufnahme ermöglichen.'],
-  ['03', 'Konzeption', 'Eine klare Informationsstruktur, die regionale Positionierung, eine natürliche Farbwelt und ein starker Fokus auf Projektbilder prägen den Auftritt.'],
-  ['04', 'Umsetzung', 'Das individuelle Webdesign wurde responsiv entwickelt, für eine schnelle Auslieferung optimiert und über GitHub Pages veröffentlicht.'],
-  ['05', 'Mobile Nutzung', 'Navigation, Leistungsübersicht, Projektgalerie und Kontaktmöglichkeiten wurden für kleine Bildschirme und die Bedienung per Touch ausgerichtet.'],
-  ['06', 'Ergebnis', 'Ein moderner und übersichtlicher Unternehmensauftritt, der den Betrieb und seine Leistungen professionell präsentiert.']
+  ['01', 'Ausgangssituation', 'Der regionale Garten- und Landschaftsbaubetrieb benötigte einen modernen, übersichtlichen und auf mobilen Geräten gut nutzbaren Online-Auftritt.'],
+  ['02', 'Ziel', 'Gartengestaltung, Pflasterarbeiten, Terrassenbau, Erdarbeiten, Gartenpflege und Natursteinarbeiten verständlich darstellen und Interessenten direkt zum Kontakt führen.'],
+  ['03', 'Konzeption', 'Eine klare Informationsstruktur, die regionale Positionierung, eine natürliche Farbwelt und ein starker Fokus auf echte Projektbilder prägen den Auftritt.'],
+  ['04', 'Umsetzung', 'Das individuelle Webdesign wurde responsiv entwickelt, für eine schnelle Auslieferung optimiert und unter der eigenen Domain veröffentlicht.'],
+  ['05', 'Mobile Nutzung', 'Navigation, Leistungsübersicht, Projektgalerie sowie Anruf- und WhatsApp-Kontakt wurden für kleine Bildschirme und Touch-Bedienung ausgerichtet.'],
+  ['06', 'Ergebnis', 'Ein moderner Unternehmensauftritt mit hochwertiger Bildwirkung, klarer Leistungsdarstellung und direkter Kontaktführung.']
 ];
-const functions = ['Individuelles Webdesign', 'Responsive Entwicklung', 'Leistungsübersicht', 'Projektgalerie', 'Kontaktmöglichkeiten', 'Standort- und Regionsbezug', 'Mobile Navigation', 'Performanceoptimierung', 'GitHub-Pages-Deployment'];
+const functions = ['Individuelles Webdesign', 'Responsive Entwicklung', 'Sechs Leistungsbereiche', 'Projektgalerie', 'Anruf- und WhatsApp-Kontakt', 'Standort- und Regionsbezug', 'Mobile Navigation', 'Performanceoptimierung'];
 ---
 <BaseLayout title="Dirk Kuhlmann Garten- & Landschaftsbau | Projekt" description="Fallstudie zur Unternehmenswebsite für Dirk Kuhlmann Garten- und Landschaftsbau mit Leistungsübersicht, Projektgalerie und responsiver Umsetzung." path="/projekte/galabau-kuhlmann/" breadcrumbs={[{name:'Startseite',path:'/'},{name:'Projekte',path:'/projekte/'},{name:'Garten- und Landschaftsbau',path:'/projekte/galabau-kuhlmann/'}]}>
   <section class="page-hero">
@@ -25,8 +25,8 @@ const functions = ['Individuelles Webdesign', 'Responsive Entwicklung', 'Leistun
   </section>
   <section class="content-section">
     <div class="container case-screens">
-      <div class="project-visual case-hero"><img src={withBase('/projects/dirk-kuhlmann-desktop.png')} alt="Desktopansicht der Website von Dirk Kuhlmann Garten- und Landschaftsbau" width="1440" height="1000" /></div>
-      <div class="project-visual case-phone"><img src={withBase('/projects/dirk-kuhlmann-mobile.png')} alt="Smartphoneansicht der Website von Dirk Kuhlmann Garten- und Landschaftsbau" width="390" height="844" /></div>
+      <div class="project-visual case-hero"><img src={withBase('/projects/dirk-kuhlmann-desktop.webp')} alt="Aktuelle Desktopansicht der Website von Dirk Kuhlmann Garten- und Landschaftsbau" width="1440" height="900" /></div>
+      <div class="project-visual case-phone"><img src={withBase('/projects/dirk-kuhlmann-mobile.webp')} alt="Aktuelle Smartphoneansicht der Website von Dirk Kuhlmann Garten- und Landschaftsbau" width="390" height="844" /></div>
     </div>
   </section>
   <section class="content-section surface-section">

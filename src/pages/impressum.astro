@@ -2,14 +2,12 @@
 import LegalPageLayout from '@/components/LegalPageLayout.astro';
 import { siteConfig } from '@/config/site';
 // Interner Hinweis: Rechtstext vor dem geschäftlichen Start abschließend fachlich prüfen lassen.
-const taxIdentifier = siteConfig.vatId || siteConfig.businessId;
 ---
 <LegalPageLayout title="Impressum | Armbrüster Digital" description="Impressum und Anbieterkennzeichnung von Armbrüster Digital, Philipp Armbrüster, Lübeck." path="/impressum/">
   <h2>Angaben gemäß § 5 DDG</h2>
   <p><strong>{siteConfig.owner}</strong><br />{siteConfig.businessName}<br />{siteConfig.address.street}<br />{siteConfig.address.postalCode} {siteConfig.address.city}<br />{siteConfig.address.country}</p>
   <h2>Kontakt</h2>
   <p>E-Mail: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
-  {taxIdentifier && <><h2>Steuerliche Angaben</h2><p>{siteConfig.vatId ? 'Umsatzsteuer-Identifikationsnummer' : 'Wirtschafts-Identifikationsnummer'}: {taxIdentifier}</p></>}
-  <h2>Verantwortlich für den Inhalt</h2>
-  <p>{siteConfig.owner}<br />{siteConfig.address.street}<br />{siteConfig.address.postalCode} {siteConfig.address.city}</p>
+  {siteConfig.vatId && <><h2>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</h2><p>{siteConfig.vatId}</p></>}
+  {siteConfig.businessId && <><h2>Wirtschafts-Identifikationsnummer:</h2><p>{siteConfig.businessId}</p></>}
 </LegalPageLayout>
