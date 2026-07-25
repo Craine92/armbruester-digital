@@ -140,7 +140,6 @@ body.nav-open{position:fixed;width:100%}
 .pricing-section{border-bottom:1px solid var(--color-border)}
 .pricing-card__includes{min-height:0!important;margin:1.35rem 0 0;padding:.85rem 1rem;border:1px solid rgba(104,73,181,.28);border-radius:.5rem;background:var(--lavender-light);color:#56399d!important;font-size:.78rem!important;font-weight:800;line-height:1.45}
 .pricing-card--premium{border-color:rgba(104,73,181,.7);box-shadow:0 24px 70px rgba(90,65,145,.16)}
-.pricing-card--premium::before{content:"";position:absolute;inset:0 0 auto;height:4px;border-radius:var(--radius-md) var(--radius-md) 0 0;background:linear-gradient(90deg,#6849b5,#a984ef)}
 .pricing-card--premium .pricing-card__badge{background:#6849b5;color:#fff!important}
 .care-section{scroll-margin-top:5rem;border-top:1px solid rgba(104,73,181,.18)}
 .care-section .section-heading{max-width:900px;padding-left:clamp(1rem,2.5vw,2rem);border-left:3px solid var(--lavender-strong)}
@@ -174,7 +173,6 @@ body.nav-open{position:fixed;width:100%}
   #preise .pricing-card ul{margin:0;padding-top:1.35rem;align-self:start}
   #preise .pricing-card__spacer{display:block}
   #preise .pricing-card .button{margin:0}
-  .pricing-card--premium::before{left:1px;right:1px;top:1px;height:3px;border-radius:calc(var(--radius-md) - 1px) calc(var(--radius-md) - 1px) 0 0}
 }
 @media(max-width:960px){#preise .pricing-grid,.pricing-comparison__grid{grid-template-columns:1fr}.pricing-comparison__package>p{margin-bottom:1rem}}
 @media(max-width:700px){#preise .pricing-card .button{width:100%}}
