@@ -35,7 +35,6 @@ export const siteConfig = {
 } as const;
 
 export const contactConfig = {
-  /** Optionaler HTTPS-Endpunkt eines späteren Formulardienstes. Leer = E-Mail-Fallback. */
-  endpoint: '',
+  endpoint: 'https://formspree.io/f/mojgpejj',
   email: siteConfig.email
 } as const;
