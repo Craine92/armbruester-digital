@@ -107,7 +107,7 @@ Die vollständigen offenen Punkte stehen in `PROJECT-CHECKLIST.md`.
 
 ## Veröffentlichung auf GitHub Pages
 
-Das Projekt ist für das Repository `craine92/armbruester-digital` und die Zieladresse `https://armbruester-digital.de/` eingerichtet. `astro.config.mjs` enthält dafür `site: 'https://armbruester-digital.de'` und `base: '/'`.
+Das Projekt ist für das Repository `craine92/armbruester-digital` und die Zieladresse `https://armbruester-digital.de/` eingerichtet. `astro.config.mjs` enthält dafür `site: 'https://armbruester-digital.de'`; ein Repository-Unterpfad über `base` ist nicht konfiguriert.
 
 ### Einmalige Einrichtung
 
