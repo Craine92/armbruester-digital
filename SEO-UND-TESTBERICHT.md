@@ -14,7 +14,7 @@ Stand: 25. Juli 2026
 
 ## Ursprünglicher Zustand
 
-- Die funktionierende Veröffentlichung war auf `https://craine92.github.io/armbruester-digital/` mit dem Base-Pfad `/armbruester-digital` ausgerichtet.
+- Die funktionierende Veröffentlichung war ursprünglich auf die GitHub-Pages-Projektadresse mit Repository-Unterpfad ausgerichtet.
 - Die künftige Domain `armbruester-digital.de` war per DNS nicht auflösbar; die GitHub-Pages-Adresse antwortete mit HTTP 200.
 - Zentrale Konfiguration, Impressum und Datenschutz enthielten sichtbare Platzhalter und `info@example.com`.
 - Der Rechteseiten-Wrapper zeigte einen öffentlichen Bearbeitungshinweis.
@@ -71,13 +71,13 @@ Stand: 25. Juli 2026
 
 ## Domainstatus
 
-Die Domainumstellung wurde bewusst noch nicht aktiviert. `armbruester-digital.de` und `www.armbruester-digital.de` waren am Prüftag nicht per DNS auflösbar. Eine vorzeitige Umstellung hätte die funktionierende GitHub-Pages-Veröffentlichung, Canonicals, Sitemap und Assets gefährdet.
+Die Domainumstellung wurde nach der Registrierung aktiviert. Canonicals, Sitemap, Assets und strukturierte Daten verwenden die Hauptdomain und den Root-Pfad.
 
-Die weiterhin gültige Produktionsadresse ist:
+Die gültige Produktionsadresse ist:
 
-`https://craine92.github.io/armbruester-digital/`
+`https://armbruester-digital.de/`
 
-Die vollständige spätere Umstellung einschließlich Netcup-DNS, GitHub Pages, HTTPS, Astro-Konfiguration und Google Search Console ist in `DOMAIN-UMSTELLUNG.md` und `GOOGLE-STARTCHECKLISTE.md` dokumentiert. Weil das Repository per GitHub Actions veröffentlicht wird, ist laut GitHub derzeit keine CNAME-Datei erforderlich; die Custom Domain wird in den Pages-Einstellungen gepflegt.
+Die Umstellung einschließlich Netcup-DNS, GitHub Pages, HTTPS, Astro-Konfiguration und Google Search Console ist in `DOMAIN-UMSTELLUNG.md` und `GOOGLE-STARTCHECKLISTE.md` dokumentiert. Weil das Repository per GitHub Actions veröffentlicht wird, ist keine CNAME-Datei im Build erforderlich; die Custom Domain wird in den Pages-Einstellungen gepflegt.
 
 ## Tests
 

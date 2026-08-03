@@ -2,12 +2,7 @@
 
 ## Aktueller Status
 
-Prüfung am 25. Juli 2026:
-
-- `armbruester-digital.de` konnte per DNS nicht aufgelöst werden.
-- `www.armbruester-digital.de` konnte per DNS nicht aufgelöst werden.
-- Die aktuelle Veröffentlichung unter `https://craine92.github.io/armbruester-digital/` antwortete mit HTTP 200.
-- Deshalb bleiben `site: 'https://craine92.github.io'` und `base: '/armbruester-digital'` vorerst aktiv. Es wird noch keine `CNAME`-Datei veröffentlicht.
+Die Anwendung ist auf `https://armbruester-digital.de` als Hauptdomain und den Root-Pfad `/` eingestellt. Die Veröffentlichung erfolgt per GitHub Actions; deshalb wird keine `CNAME`-Datei im Build benötigt. Die Custom Domain wird in den GitHub-Pages-Einstellungen gepflegt.
 
 ## Schritte nach Registrierung und DNS-Aktivierung
 
@@ -21,9 +16,9 @@ Prüfung am 25. Juli 2026:
 4. Optional zusätzlich die vier in `GOOGLE-STARTCHECKLISTE.md` genannten AAAA-Records setzen.
 5. Für `www` einen CNAME auf `craine92.github.io` setzen, ohne Repository-Unterpfad.
 6. DNS-Auflösung für Hauptdomain und `www` prüfen. GitHub soll die nicht gewählte Variante auf die eingetragene Hauptdomain umleiten.
-7. In `astro.config.mjs` `site` auf `https://armbruester-digital.de` setzen und `base` entfernen oder auf `/` setzen.
-8. In `src/config/site.ts` `siteUrl` und `domain` auf die neue Hauptdomain ändern.
-9. Neu bauen und Canonical-URLs, Open Graph, strukturierte Daten, Sitemap, robots.txt, interne Links und Assets prüfen.
+7. In `astro.config.mjs` `site` auf `https://armbruester-digital.de` und `base` auf `/` gesetzt lassen.
+8. In `src/config/site.ts` `siteUrl` und `domain` auf der Hauptdomain halten.
+9. Nach Änderungen neu bauen und Canonical-URLs, Open Graph, strukturierte Daten, Sitemap, robots.txt, interne Links und Assets prüfen.
 10. Da dieses Projekt per GitHub Actions veröffentlicht wird, ist laut GitHub keine `CNAME`-Datei erforderlich. Die Custom Domain wird in den Pages-Einstellungen gepflegt.
 11. Nach Ausstellung des Zertifikats **Enforce HTTPS** aktivieren.
 12. Erst nach erfolgreicher Prüfung die neue Sitemap in der Google Search Console einreichen.

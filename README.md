@@ -29,7 +29,7 @@ npm run build
 npm run preview
 ```
 
-Der statische Build liegt danach in `dist/`. Das Projekt ist für den GitHub-Pages-Unterpfad `/armbruester-digital/` konfiguriert. Die lokale Entwicklungs- und Vorschauadresse enthält deshalb ebenfalls diesen Base-Pfad.
+Der statische Build liegt danach in `dist/`. Das Projekt ist für die eigene Domain `https://armbruester-digital.de` und den Root-Pfad `/` konfiguriert.
 
 ## Projektstruktur
 
@@ -49,7 +49,7 @@ public/
 
 Alle zentralen Angaben stehen in `src/config/site.ts`. Dort werden Marke, Inhaber, Domain, E-Mail, Adresse, optionale Steuerkennungen, Social-Media-Links und Bilder gepflegt. Leere Telefon-, Steuer- und Social-Werte werden öffentlich nicht ausgegeben.
 
-Die Produktionsadresse ist für `https://craine92.github.io/armbruester-digital/` vorkonfiguriert. Canonical-URLs, Sitemap, robots.txt und strukturierte Daten werden einschließlich des Repository-Unterpfads erzeugt.
+Die Produktionsadresse ist `https://armbruester-digital.de/`. Canonical-URLs, Sitemap, robots.txt und strukturierte Daten werden für diese Hauptdomain erzeugt.
 
 ## Projekte hinzufügen
 
@@ -107,7 +107,7 @@ Die vollständigen offenen Punkte stehen in `PROJECT-CHECKLIST.md`.
 
 ## Veröffentlichung auf GitHub Pages
 
-Das Projekt ist für das Repository `craine92/armbruester-digital` und die Zieladresse `https://craine92.github.io/armbruester-digital/` eingerichtet. `astro.config.mjs` enthält dafür `site: 'https://craine92.github.io'` und `base: '/armbruester-digital'`.
+Das Projekt ist für das Repository `craine92/armbruester-digital` und die Zieladresse `https://armbruester-digital.de/` eingerichtet. `astro.config.mjs` enthält dafür `site: 'https://armbruester-digital.de'` und `base: '/'`.
 
 ### Einmalige Einrichtung
 
@@ -137,6 +137,6 @@ git commit -m "Website aktualisieren"
 git push origin main
 ```
 
-Der Status der Veröffentlichung ist im Reiter **Actions** sichtbar. Nach erfolgreichem Abschluss ist die aktualisierte Website unter `https://craine92.github.io/armbruester-digital/` erreichbar.
+Der Status der Veröffentlichung ist im Reiter **Actions** sichtbar. Nach erfolgreichem Abschluss ist die aktualisierte Website unter `https://armbruester-digital.de/` erreichbar.
 
-Interne Links und öffentliche Assets müssen über `src/utils/paths.ts` beziehungsweise `import.meta.env.BASE_URL` aufgelöst werden. Dadurch funktionieren sie sowohl lokal als auch unter dem GitHub-Pages-Unterverzeichnis.
+Interne Links und öffentliche Assets werden über `src/utils/paths.ts` beziehungsweise `import.meta.env.BASE_URL` aufgelöst und liegen auf der Hauptdomain direkt unter dem Root-Pfad.

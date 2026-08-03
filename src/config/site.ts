@@ -8,9 +8,8 @@ export const siteConfig = {
   location: 'Lübeck',
   region: 'Deutschlandweit · persönlich betreut aus Lübeck',
   serviceArea: 'Deutschland',
-  siteUrl: 'https://craine92.github.io/armbruester-digital/',
-  domain: 'craine92.github.io/armbruester-digital',
-  futureSiteUrl: 'https://armbruester-digital.de/',
+  siteUrl: 'https://armbruester-digital.de/',
+  domain: 'armbruester-digital.de',
   email: 'armphi@icloud.com',
   phone: '' as string,
   // TODO: Nach der Gewerbeanmeldung beziehungsweise steuerlichen Registrierung

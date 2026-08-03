@@ -9,7 +9,7 @@ export const withBase = (path: string): string => {
   return `${base}${path.replace(/^\/+/, '')}`;
 };
 
-/** Creates the public GitHub Pages URL for canonical, sitemap and social metadata. */
+/** Creates an absolute production URL for canonical, sitemap and social metadata. */
 export const absoluteUrl = (path = '/'): string => {
   const relativePath = path.replace(/^\/+/, '');
   return new URL(relativePath, `${import.meta.env.SITE.replace(/\/$/, '')}${base}`).toString();
